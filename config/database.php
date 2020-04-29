@@ -18,7 +18,7 @@ $choix = "ORM";
 $etat = 'on'; //on or off
 
 $orm = array(
-              'dbname' => 'arenabi_feedback',//change your database name
+              'dbname' => 'samanemvcorm_test',//change your database name
               'user'     => 'root',
               'password' => '',
               'host' => '127.0.0.1',

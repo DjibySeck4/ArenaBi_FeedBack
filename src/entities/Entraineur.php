@@ -1,34 +1,88 @@
-
 <?php
 
-/** @Entity  */
+/** @Entity @Table(name="entraineur") */
 
-class Entraineur extends Personne
+class Entraineur
 {
 
-    /** @column(type="string") */
-    private $description;
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $idEntraineur;
+
     /**
-     * @ManyToOne(targetEntity="Ecurie", inversedBy="entraineur")
-     * @JoinColumn(name="ecurie_id", referencedColumnName="idEcurie")
+     * @OneToOne(targetEntity="Personne",cascade={"persist"})
+     * @JoinColumn(name="idPersonne", referencedColumnName="idPersonne")
      */
-    private $idEcurie;
-     
-    public function getDescription()
+    private $personne;
+
+    /** @column(type="string", length=100, nullable=false) */
+    private $descriptionEntraineur;
+
+     /**
+     * @ManyToMany(targetEntity="Ecurie", mappedBy="entraineur")
+     **/
+    private $ecurie;
+
+    /**
+     * Get the value of idEntraineur
+     */ 
+    public function getIdEntraineur()
     {
-        return $this->description;
-    }
-    public function setDescription($description)
-    {
-        $this->description = $description;
+        return $this->idEntraineur;
     }
 
-    public function getIdEcurie()
+    /**
+     * Set the value of idEntraineur
+     */ 
+    public function setIdEntraineur($idEntraineur)
     {
-        return $this->idEcurie;
+        $this->idEntraineur = $idEntraineur;
     }
-    public function setIdEcurie($idEcurie)
+
+    /**
+     * Get the value of personne
+     */ 
+    public function getPersonne()
     {
-        $this->idEcurie = $idEcurie;
+        return $this->personne;
+    }
+
+    /**
+     * Set the value of personne
+     */ 
+    public function setPersonne($personne)
+    {
+        $this->personne = $personne;
+    }
+
+    /**
+     * Get the value of descriptionEntraineur
+     */ 
+    public function getDescriptionEntraineur()
+    {
+        return $this->descriptionEntraineur;
+    }
+
+    /**
+     * Set the value of descriptionEntraineur
+     */ 
+    public function setDescriptionEntraineur($descriptionEntraineur)
+    {
+        $this->descriptionEntraineur = $descriptionEntraineur;
+    }
+
+    /**
+     * Get the value of ecurie
+     */ 
+    public function getEcurie()
+    {
+        return $this->ecurie;
+    }
+
+    /**
+     * Set the value of ecurie
+     */ 
+    public function setEcurie($ecurie)
+    {
+        $this->ecurie = $ecurie;
     }
 }

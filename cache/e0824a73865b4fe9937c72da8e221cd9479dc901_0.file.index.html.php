@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-16 18:04:58
+/* Smarty version 3.1.30, created on 2020-04-18 17:03:10
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\welcome\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e98822a3e63b9_06121884',
+  'unifunc' => 'content_5e9b16ae9c38b0_64825646',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0824a73865b4fe9937c72da8e221cd9479dc901' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\welcome\\index.html',
-      1 => 1587052827,
+      1 => 1587221886,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5e98822a3e63b9_06121884 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e9b16ae9c38b0_64825646 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -65,7 +65,6 @@ function content_5e98822a3e63b9_06121884 (Smarty_Internal_Template $_smarty_tpl)
 
                 <!-- <====== End Menu principal =====> -->			
 	    	</header>
-		
 		    <div class="site-main-container">
                 <!-- <====== Top Section =====> -->
                 <?php $_smarty_tpl->_subTemplateRender("file:../partials/contenu_index/top_section.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -93,8 +92,7 @@ function content_5e98822a3e63b9_06121884 (Smarty_Internal_Template $_smarty_tpl)
                 <?php $_smarty_tpl->_subTemplateRender("file:../partials/contenu_index/Colonne1/video_section.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-                <!-- <====== End Section Vidéo =====> -->			
-             
+                <!-- <====== End Section Vidéo =====> -->			 
             </div>
                                         <!-- <====== End Colonne 1 =====> --> 
                                         

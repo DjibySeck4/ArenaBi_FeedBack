@@ -8,3 +8,5 @@ RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 
 RewriteRule ^home$ view/welcome/index.html
+
+RewriteRule ^contact$ view/pages/contact.html

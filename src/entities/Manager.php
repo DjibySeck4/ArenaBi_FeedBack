@@ -1,33 +1,93 @@
 <?php
 
-/** @Entity  */
+use Doctrine\Common\Collections\ArrayCollection;
 
-class Manager extends Personne
+/** @Entity @Table(name="manager") */
+
+class Manager
 {
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $idManager;
+
     /**
-     * @ManyToOne(targetEntity="Ecurie", inversedBy="manager")
-     * @JoinColumn(name="idEcurie", referencedColumnName="idEcurie")
+     * @OneToOne(targetEntity="Personne",cascade={"persist"})
+     * @JoinColumn(name="idPersonne", referencedColumnName="idPersonne")
      */
-    private $idEcurie;
+    private $personne;
+    /**
+     * @OneToMany(targetEntity="Lutteur", mappedBy="manager")
+     **/
+    private $lutteurs;
+    /** @column(type="string", length=100, nullable=false) */
+    private $descriptionManager;
 
-    /** @column(type="string") */
-    private $description;
+    public function __construct()
+    {
+        $this->lutteurs = new ArrayCollection();
+    }
+    
 
-    public function getIdEcurie()
+    /**
+     * Get the value of idManager
+     */ 
+    public function getIdManager()
     {
-        return $this->idEcurie;
-    }
-    public function setIdEcurie($idEcurie)
-    {
-        $this->idEcurie = $idEcurie;
+        return $this->idManager;
     }
 
-    public function getDescription()
+    /**
+     * Set the value of idManager
+     */ 
+    public function setIdManager($idManager)
     {
-        return $this->description;
+        $this->idManager = $idManager;
     }
-    public function setDescription($description)
+
+    /**
+     * Get the value of personne
+     */ 
+    public function getPersonne()
     {
-        $this->description = $description;
+        return $this->personne;
+    }
+
+    /**
+     * Set the value of personne
+     */ 
+    public function setPersonne($personne)
+    {
+        $this->personne = $personne;
+    }
+
+    /**
+     * Get the value of lutteurs
+     */ 
+    public function getLutteurs()
+    {
+        return $this->lutteurs;
+    }
+
+    /**
+     * Set the value of lutteurs
+     */ 
+    public function setLutteurs($lutteurs)
+    {
+        $this->lutteurs = $lutteurs;
+    }
+
+    /**
+     * Get the value of descriptionManager
+     */ 
+    public function getDescriptionManager()
+    {
+        return $this->descriptionManager;
+    }
+
+    /**
+     * Set the value of descriptionManager
+     */ 
+    public function setDescriptionManager($descriptionManager)
+    {
+        $this->descriptionManager = $descriptionManager;
     }
 }

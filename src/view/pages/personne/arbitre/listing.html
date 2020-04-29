@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Listing</title>
+		 <!-- <====== Contenu de <head> =====> -->
+            {include file='../../../partials/contenu_index/head.html'}
+            <!-- <====== End Contenu de <head> =====> -->
+		<style>
+			h1{ 
+				color: #40007d;
+			}   
+		</style>
+	</head>
+	<body>
+		 <!-- <====== Top Barre =====> -->
+         {include file='../../../partials/contenu_index/top_barre.html'}
+         <!-- <====== End Top Barre =====> -->
+
+         <!-- <====== Logo Barre =====> -->
+         {include file='../../../partials/contenu_index/logo_barre.html'}
+         <!-- <====== End Logo Barre =====> -->
+
+         <!-- <====== Menu principal =====> -->
+         {include file='../../../partials/contenu_index/menu.html'}
+
+
+		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2" style="margin-top:70px; margin-left:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">Liste des arbitres</div>
+				<div class="panel-body">
+                    <table class="table table-bordered table-stripped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Photo</th>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Surnom</th>
+                                <th>Date naissance</th>
+                                <th>Adresse</th>
+                                <th>Ville</th>
+                                <th>Description</th>
+                                <th>Metier</th>
+                                <th>Sexe</th>
+                                <th>Nationalite</th> 
+                                <th>Edite</th> 
+                                <th>Delete</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {foreach from=$liste_personnes item=$personne}
+                                <tr>
+                                    <td>{$personne->getIdPersonne()}</td>
+                                    <td><img width="45px" height="30px" src="{$url_base}public/images/{$personne->getPhoto()}" alt="photo"></td>
+                                    <td>{$personne->getNom()}</td>
+                                    <td>{$personne->getPrenom()}</td>
+                                    <td>{$personne->getSurnom()}</td>
+                                    <td>{$personne->getDateNaissance()}</td>
+                                    <td>{$personne->getAdresse()}</td>
+                                    <td>{$personne->getVille()}</td>
+                                    <td>{$personne->getDescription()}</td>
+                                    <td>{$personne->getMetier()}</td>
+                                    <td>{$personne->getSexe()}</td>
+                                    <td>{$personne->getNationalite()}</td>
+                                    <td><a href="{$url_base}Personne/edit/{$personne->getIdPersonne()}">Editier</a></td>
+                                    <td><a href="{$url_base}Personne/delete/{$personne->getIdPersonne()}" onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
+                                </tr>
+                            {/foreach}
+                        <tbody>
+                    </table>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

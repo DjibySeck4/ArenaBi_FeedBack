@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-16 16:53:25
+/* Smarty version 3.1.30, created on 2020-04-21 17:54:38
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\footer.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e987165d3b2c0_79910669',
+  'unifunc' => 'content_5e9f173e0d0162_96066388',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e09e5eef60b0a90bea6d9b51665860fa50a88d17' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\footer.html',
-      1 => 1587048785,
+      1 => 1587484356,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e987165d3b2c0_79910669 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e9f173e0d0162_96066388 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   <!-- <====== Footer =====> -->
   <footer class="footer-area section-gap">
@@ -65,14 +65,22 @@ function content_5e987165d3b2c0_79910669 (Smarty_Internal_Template $_smarty_tpl)
             <div class="col-lg-3 col-md-6 single-footer-widget">
                 <h4>Instragram Feed</h4>
                 <ul class="instafeed d-flex flex-wrap">
-                    <li><img src="public/magazine/img/i1.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i2.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i3.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i4.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i5.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i6.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i7.jpg" alt=""></li>
-                    <li><img src="public/magazine/img/i8.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i1.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i2.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i3.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i4.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i5.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i6.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i7.jpg" alt=""></li>
+                    <li><img src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/img/i8.jpg" alt=""></li>
                 </ul>
             </div>
         </div>

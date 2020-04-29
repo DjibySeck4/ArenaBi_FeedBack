@@ -1,76 +1,177 @@
 <?php
-use Doctrine\ORM\Annotation as ORM;
+
 use Doctrine\Common\Collections\ArrayCollection;
 
-/**
- * @Entity
- **/
-class Lutteur extends Personne
+/** @Entity @Table(name="lutteur") */
+
+class Lutteur
 {
-   /** @Column(type="string", length=50, nullable=true) **/
-   private $droitierOuGauchier;
+    /** @Id @Column(type="integer") @GeneratedValue **/
+    private $idLutteur;
 
-   /** @Column(type="string", length=10, nullable=false) **/
-   private $categorieVipAutres;
+    /**
+     * @OneToOne(targetEntity="Personne",cascade={"persist"})
+     * @JoinColumn(name="idPersonne", referencedColumnName="idPersonne")
+     */
+    private $personne;
 
-    /**@column(type="string") */
-    private $description;
-    
-   /**.
+    /** @column(type="string", length=20, nullable=false)  */
+    private $droitierOuGauchier;
+
+    /** @column(type="string", length=20, nullable=false) */
+    private $categorieVipAutres;
+
+    /** @column(type="string") */
+    private $descriptionLutteur;
+
+    /**.
      * @ManyToMany(targetEntity="Combat", mappedBy="lutteur")
      */
     private $combats;
+    
+    /**
+     * @ManyToOne(targetEntity="Manager", inversedBy="lutteur")
+     * @JoinColumn(name="idManager", referencedColumnName="idManager")
+     */
+    private $manager;
+    /**
+     * @OneToMany(targetEntity="TournoiParticipant", mappedBy="lutteur")
+     **/
+    private $tournois;
 
-   
     public function __construct()
     {
-      
+        $this->combats = new ArrayCollection();
+        $this->tournois = new ArrayCollection();
     }
+
     
-   public function getDroitierOuGauchier()
-   {
-      return $this->droitierOuGauchier;
-   }
-   public function setDroitierOuGauchier($droitierOuGauchier)
-   {
-      $this->droitierOuGauchier = $droitierOuGauchier;
-   }
 
-   public function getCategorieVipAutres()
-   {
-      return $this->categorieVipAutres;
-   }
-   public function setCategorieVipAutres($categorieVipAutres)
-   {
-      $this->categorieVipAutres = $categorieVipAutres;
-   }
-
-    public function getTournoiLutte()
+    /**
+     * Get the value of idLutteur
+     */ 
+    public function getIdLutteur()
     {
-        return $this->tournoiLutte;
-    }
-    public function setTournoiLutte($tournoiLutte)
-    {
-        $this->tournoiLutte = $tournoiLutte;
-    }
- 
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    public function setDescription($description)
-    {
-        $this->description = $description;
+        return $this->idLutteur;
     }
 
+    /**
+     * Set the value of idLutteur
+     */ 
+    public function setIdLutteur($idLutteur)
+    {
+        $this->idLutteur = $idLutteur;
+    }
+
+    /**
+     * Get the value of personne
+     */ 
+    public function getPersonne()
+    {
+        return $this->personne;
+    }
+
+    /**
+     * Set the value of personne
+     */ 
+    public function setPersonne($personne)
+    {
+        $this->personne = $personne;
+    }
+
+    /**
+     * Get the value of droitierOuGauchier
+     */ 
+    public function getDroitierOuGauchier()
+    {
+        return $this->droitierOuGauchier;
+    }
+
+    /**
+     * Set the value of droitierOuGauchier
+     */ 
+    public function setDroitierOuGauchier($droitierOuGauchier)
+    {
+        $this->droitierOuGauchier = $droitierOuGauchier;
+    }
+
+    /**
+     * Get the value of categorieVipAutres
+     */ 
+    public function getCategorieVipAutres()
+    {
+        return $this->categorieVipAutres;
+    }
+
+    /**
+     * Set the value of categorieVipAutres
+     */ 
+    public function setCategorieVipAutres($categorieVipAutres)
+    {
+        $this->categorieVipAutres = $categorieVipAutres;
+    }
+
+    /**
+     * Get the value of descriptionLutteur
+     */ 
+    public function getDescriptionLutteur()
+    {
+        return $this->descriptionLutteur;
+    }
+
+    /**
+     * Set the value of descriptionLutteur
+     */ 
+    public function setDescriptionLutteur($descriptionLutteur)
+    {
+        $this->descriptionLutteur = $descriptionLutteur;
+    }
+
+    /**
+     * Get the value of combats
+     */ 
     public function getCombats()
     {
         return $this->combats;
     }
+
+    public function addCombat(Combat $combat)
+    {
+        $this->combats[] = $combat;
+    }
+
+    /**
+     * Get the value of tournois
+     */ 
+    public function getTournois()
+    {
+        return $this->tournois;
+    }
+
+    
+
+    /**
+     * Get the value of manager
+     */ 
+    public function getManager()
+    {
+        return $this->manager;
+    }
+
+    /**
+     * Set the value of manager
+     */ 
+    public function setManager($manager)
+    {
+        $this->manager = $manager;
+    }
+
+    /**
+     * Set the value of combats
+     */ 
     public function setCombats($combats)
     {
         $this->combats = $combats;
     }
+    
 }
-
-?>

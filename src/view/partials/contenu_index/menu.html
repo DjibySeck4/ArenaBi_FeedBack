@@ -3,22 +3,42 @@
         <nav id="nav-menu-container">
             <ul class="nav-menu">
                 <li class="menu-active"><a href="home">Home</a></li>
-                <li><a href="public/magazine/archive.html">Archive</a></li>
-                <li><a href="public/magazine/category.html">Category</a></li>
-                <li class="menu-has-children"><a href="">Post Types</a>
+                <li><a href="{$url_base}public/magazine/archive.html">Archive</a></li>
+                <li><a href="{$url_base}public/magazine/category.html">Category</a></li>
+                <li class="menu-has-children"><a href="">Posts</a>
+                    <ul>
+                        <li><a href="{$url_base}public/magazine/standard-post.html">Standard Post</a></li>
+                        <li><a href="{$url_base}public/magazine/image-post.html">Image Post</a></li>
+                        <li><a href="{$url_base}gallery-post.html">Gallery Post</a></li>
+                        <li><a href="{$url_base}public/magazine/video-post.html">Video Post</a></li>
+                        <li><a href="{$url_base}public/magazine/audio-post.html">Audio Post</a></li>
+                    </ul>
+                </li>   
+            <li><a href="{$url_base}public/magazine/about.html">About</a></li>
+            <li><a href="{$url_base}public/magazine/contact.html">Contact</a></li>
+            <li class="menu-has-children"><a href="">Add</a>
                 <ul>
-                    <li><a href="public/magazine/standard-post.html">Standard Post</a></li>
-                    <li><a href="public/magazine/image-post.html">Image Post</a></li>
-                    <li><a href="gallery-post.html">Gallery Post</a></li>
-                    <li><a href="public/magazine/video-post.html">Video Post</a></li>
-                    <li><a href="public/magazine/audio-post.html">Audio Post</a></li>
+                    <li><a href="{$url_base}Arbitre/ajouter">Arbitre</a></li>
+                    <li><a href="{$url_base}Lutteur/ajouter">Lutteur</a></li>
+                    <li><a href="{$url_base}Manager/ajouter">Manager</a></li>
+                    <li><a href="{$url_base}Entraineur/ajouter">Entraîneur</a></li>
+                    <li><a href="{$url_base}Promoteur/ajouter">Promoteur</a></li>
                 </ul>
             </li>
-            <li><a href="public/magazine/about.html">About</a></li>
-            <li><a href="public/magazine/contact.html">Contact</a></li>
+
+            <li class="menu-has-children"><a href="">Listing</a>
+                <ul>
+                    <li><a href="{$url_base}Arbitre/liste">Arbitre</a></li>
+                    <li><a href="{$url_base}Lutteur/liste">Lutteur</a></li>
+                    <li><a href="{$url_base}Manager/liste">Manager</a></li>
+                    <li><a href="{$url_base}Entraineur/liste">Entraîneur</a></li>
+                    <li><a href="{$url_base}Promoteur/liste">Promoteur</a></li>
+                </ul>
+            </li>
+           
         </ul>
         </nav><!-- #nav-menu-container -->
-        <div class="navbar-right">
+        <div class="navbar-right" >
             <form class="Search">
                 <input type="text" class="form-control Search-box" name="Search-box" id="Search-box" placeholder="Search">
                 <label for="Search-box" class="Search-box-label">

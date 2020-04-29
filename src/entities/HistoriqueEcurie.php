@@ -1,84 +1,107 @@
 <?php
-use Doctrine\ORM\Annotation as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+
+
 /**
- * @Entity 
- * @Table(name="historiqueEcurie")
+ * @Entity @Table(name="historiqueEcurie")
  **/
-class HistiriqueEcurie
+
+class HistoriqueEcurie
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $idHistoriqueEcurie;
-
-     /** @column(type="string", length=10, nullable=false) */
-     private $dateAdhesion;
-
-     /** @column(type="string") */
-     private $description;
-
     /**
      * @ManyToOne(targetEntity="Lutteur", inversedBy="historiqueEcurie")
-     * @JoinColumn(name="lutteur_id", referencedColumnName="idPersonne")
+     * @JoinColumn(name="idLutteur", referencedColumnName="idLutteur")
      */
-    private $idLutteur;
-
+    private $lutteur;
     /**
      * @ManyToOne(targetEntity="Ecurie", inversedBy="historiqueEcurie")
-     * @JoinColumn(name="ecurie_id", referencedColumnName="idEcurie")
+     * @JoinColumn(name="idEcurie", referencedColumnName="idEcurie")
      */
-    private $idEcurie;
+    private $ecurie;
 
-   
-    
-    
-    public function __construct()
-    {
-        
-    }
+    /** @column(type="string", length=10, nullable=false) */
+    private $dateAdhesion;
+    /** @column(type="string") */
+    private $description;
+
+    /**
+     * Get the value of idHistoriqueEcurie
+     */ 
     public function getIdHistoriqueEcurie()
     {
         return $this->idHistoriqueEcurie;
     }
+
+    /**
+     * Set the value of idHistoriqueEcurie
+     */ 
     public function setIdHistoriqueEcurie($idHistoriqueEcurie)
     {
         $this->idHistoriqueEcurie = $idHistoriqueEcurie;
     }
 
+    /**
+     * Get the value of dateAdhesion
+     */ 
     public function getDateAdhesion()
     {
         return $this->dateAdhesion;
     }
+
+    /**
+     * Set the value of dateAdhesion
+     */ 
     public function setDateAdhesion($dateAdhesion)
     {
         $this->dateAdhesion = $dateAdhesion;
     }
 
+    /**
+     * Get the value of description
+     */ 
     public function getDescription()
     {
         return $this->description;
     }
+
+    /**
+     * Set the value of description
+     */ 
     public function setDescription($description)
     {
         $this->description = $description;
     }
 
-    public function getIdEcurie()
+    /**
+     * Get the value of lutteur
+     */ 
+    public function getLutteur()
     {
-        return $this->idEcurie;
-    }
-    public function setIdEcurie($idEcurie)
-    {
-        $this->idEcurie = $idEcurie;
+        return $this->lutteur;
     }
 
-    public function getIdLutteur()
+    /**
+     * Set the value of lutteur
+     */ 
+    public function setLutteur($lutteur)
     {
-        return $this->idLutteur;
+        $this->lutteur = $lutteur;
     }
-    public function setIdLutteur($idLutteur)
+
+    /**
+     * Get the value of ecurie
+     */ 
+    public function getEcurie()
     {
-        $this->idLutteur = $idLutteur;
+        return $this->ecurie;
+    }
+
+    /**
+     * Set the value of ecurie
+     */ 
+    public function setEcurie($ecurie)
+    {
+        $this->ecurie = $ecurie;
     }
 }
-
-?>

@@ -1,170 +1,214 @@
 <?php
-use Doctrine\ORM\Annotation as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 /**
  * @Entity @Table(name="personne")
- *  @InheritanceType("JOINED")
- * @DiscriminatorColumn(name="discr", type="string")
- * @DiscriminatorMap({"personne" = "Personne", "lutteur" = "Lutteur", "entraineur" = "Entraineur", "manager" = "Manager", "arbitre" = "Arbitre", "promoteur" = "Promoteur", "consultant" = "Consultant"})
  **/
+
 class Personne
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $idPersonne;
-    
-    /** @Column(type="string", length=50, nullable=true) **/
+    /** @column(type="string", length=20, nullable=true) */
     private $nom;
-
-    /** @Column(type="string", length=100, nullable=true) **/
+    /** @column(type="string", length=50, nullable=true) */
     private $prenom;
-
-    /** @Column(type="string", length=50, nullable=true) **/
+    /** @column(type="string", length=70, nullable=false) */
     private $surnom;
-
-    /** @Column(type="string", length=10, nullable=false) **/
+    /** @column(type="string", length=10, nullable=false) */
     private $dateNaissance;
-
-    /** @Column(type="string", length=255, nullable=false) **/
-     private $adresse;
-
-    /** @Column(type="string", length=50, nullable=false) **/
+    /** @column(type="string", length=50, nullable=false) */
+    private $adresse;
+    /** @column(type="string", length=20, nullable=false) */
     private $ville;
-
-    /** @Column(type="string", length=100, nullable=true) **/
-    private $photo;
-
-    /** @Column(type="text", nullable=true) **/
-     private $description;
-
-    /** @Column(type="string", length=50, nullable=false) **/
-    private $metier;
-
-    /** @Column(type="string", length=1) **/
-     private $sexe;
-    /** @Column(type="string", length=30, nullable=false) **/
+    /** @column(type="string") */
+    private $photoPersonne;
+    /** @column(type="string", length=30, nullable=true) */
+    private $metierPersonne;
+    /** @column(type="string", length=10, nullable=false) */
+    private $sexe;
+    /** @column(type="string", length=15, nullable=false) */
     private $nationalite;
+
     
-    public function __construct()
-    {
-        
-    }
+    
+
+    /**
+     * Get the value of idPersonne
+     */ 
     public function getIdPersonne()
     {
         return $this->idPersonne;
     }
+
+    /**
+     * Set the value of idPersonne
+     */ 
     public function setIdPersonne($idPersonne)
     {
         $this->idPersonne = $idPersonne;
     }
 
+    /**
+     * Get the value of nom
+     */ 
     public function getNom()
     {
         return $this->nom;
     }
+
+    /**
+     * Set the value of nom
+     */ 
     public function setNom($nom)
     {
         $this->nom = $nom;
     }
 
+    /**
+     * Get the value of prenom
+     */ 
     public function getPrenom()
     {
         return $this->prenom;
     }
+
+    /**
+     * Set the value of prenom
+     */ 
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
     }
-    
+
+    /**
+     * Get the value of surnom
+     */ 
     public function getSurnom()
     {
         return $this->surnom;
     }
+
+    /**
+     * Set the value of surnom
+     */ 
     public function setSurnom($surnom)
     {
         $this->surnom = $surnom;
     }
 
+    /**
+     * Get the value of dateNaissance
+     */ 
     public function getDateNaissance()
     {
         return $this->dateNaissance;
     }
+
+    /**
+     * Set the value of dateNaissance
+     */ 
     public function setDateNaissance($dateNaissance)
     {
         $this->dateNaissance = $dateNaissance;
     }
 
+    /**
+     * Get the value of adresse
+     */ 
     public function getAdresse()
     {
         return $this->adresse;
     }
+
+    /**
+     * Set the value of adresse
+     */ 
     public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
     }
 
+    /**
+     * Get the value of ville
+     */ 
     public function getVille()
     {
         return $this->ville;
     }
+
+    /**
+     * Set the value of ville
+     */ 
     public function setVille($ville)
     {
         $this->ville = $ville;
     }
 
-    public function getPhoto()
+    /**
+     * Get the value of photoPersonne
+     */ 
+    public function getPhotoPersonne()
     {
-        return $this->photo;
-    }
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    public function setDescription($description)
-    {
-        $this->description = $description;
+        return $this->photoPersonne;
     }
 
-    public function getMetier()
+    /**
+     * Set the value of photoPersonne
+     */ 
+    public function setPhotoPersonne($photoPersonne)
     {
-        return $this->metier;
+        $this->photoPersonne = $photoPersonne;
     }
-    public function setMetier($metier)
+    
+    /**
+     * Get the value of metierPersonne
+     */ 
+    public function getMetierPersonne()
     {
-        $this->metier = $metier;
+        return $this->metierPersonne;
     }
 
+    /**
+     * Set the value of metierPersonne
+     */ 
+    public function setMetierPersonne($metierPersonne)
+    {
+        $this->metierPersonne = $metierPersonne;
+    }
+
+    /**
+     * Get the value of sexe
+     */ 
     public function getSexe()
     {
         return $this->sexe;
     }
+
+    /**
+     * Set the value of sexe
+     */ 
     public function setSexe($sexe)
     {
         $this->sexe = $sexe;
     }
 
+    /**
+     * Get the value of nationalite
+     */ 
     public function getNationalite()
     {
         return $this->nationalite;
     }
+
+    /**
+     * Set the value of nationalite
+     */ 
     public function setNationalite($nationalite)
     {
         $this->nationalite = $nationalite;
     }
-
-    public function getCombats()
-    {
-        return $this->combats;
-    }
-    public function setCombats($combats)
-    {
-        $this->combats = $combats;
-    }
 }
+
 
 ?>

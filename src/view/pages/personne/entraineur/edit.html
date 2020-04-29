@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Editer personne</title>
+		 <!-- <====== Contenu de <head> =====> -->
+            {include file='../../../partials/contenu_index/head.html'}
+            <!-- <====== End Contenu de <head> =====> -->
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+		 <!-- <====== Top Barre =====> -->
+         {include file='../../../partials/contenu_index/top_barre.html'}
+         <!-- <====== End Top Barre =====> -->
+
+         <!-- <====== Logo Barre =====> -->
+         {include file='../../../partials/contenu_index/logo_barre.html'}
+         <!-- <====== End Logo Barre =====> -->
+
+         <!-- <====== Menu principal =====> -->
+         {include file='../../../partials/contenu_index/menu.html'}
+
+
+		<div class="col-md-7 col-xs-7 col-md-offset-2" style="margin-top:70px; margin-left:350;">
+			<div class="panel panel-info">
+				<div class="panel-heading"><b>Changement des coordonnées de la personne</b></div>
+				<div class="panel-body">
+                    <form method="post" action="{$url_base}Personne/update" class="well" enctype="multipart/form-data">
+                        <div class="form-group">
+							<label for="id" class="control-label">Identifiant</label>
+							<input class="form-control" type="text" name="id" id="id" readonly value="{$personne->getIdPersonne()}" required/>
+                        </div>
+						<div class="form-group">
+							<label for="nom" class="control-label">Nom</label>
+							<input class="form-control" type="text" name="nom" id="nom" value="{$personne->getNom()}" required/>
+                        </div>
+                        <div class="form-group">
+							<label for="prenom" class="control-label">Prénom</label>
+							<input class="form-control" type="text" name="prenom" id="prenom" value="{$personne->getPrenom()}" required/>
+						</div>
+						<div class="form-group">
+							<label for="surnom" class="control-label">Surom</label>
+							<input class="form-control" type="text" name="surnom" id="surnom" value="{$personne->getSurnom()}" required/>
+                        </div>
+                        <div class="form-group">
+							<label for="dateNaissance" class="control-label">Date de naissance</label>
+							<input class="form-control" type="date" name="dateNaissance" id="dateNaissance" value="{$personne->getDateNaissance()}" required/>
+						</div>
+						<div class="form-group">
+							<label for="adresse" class="control-label">Adresse</label>
+							<input class="form-control" type="text" name="adresse" id="adresse" value="{$personne->getAdresse()}" required/>
+						</div>
+                        <div class="form-group">
+							<label for="ville" class="control-label">Ville</label>
+							<input class="form-control" type="text" name="ville" id="ville" value="{$personne->getVille()}" required/>
+                        </div>
+                        <div class="form-group">
+							<label for="photo" class="control-label">Photo</label>
+							<input class="form-control" type="file" name="photo" id="photo" value="{$personne->getPhoto()}"/>
+                        </div>
+                        <div class="form-group">
+							<label for="description" class="control-label">Description</label>
+							<textarea class="form-control" name="description" id="description" cols="30" rows=""  value="{$personne->getDescription()}"></textarea>
+                        </div>
+                        <div class="form-group">
+							<label for="metier" class="control-label">Metier</label>
+							<input class="form-control" type="text" name="metier" id="metier" value="{$personne->getMetier()}" required/>
+                        </div>
+                        <div class="form-group">
+							<label for="sexe" class="control-label">Sexe</label>
+							<input class="form-control" type="text" name="sexe" id="sexe" required value="{$personne->getSexe()}"/>
+                        </div>
+                        <div class="form-group">
+							<label for="nationalite" class="control-label">Nationalite</label>
+							<input class="form-control" type="text" name="nationalite" id="nationalite" value="{$personne->getNationalite()}" required/>
+                        </div>
+						<div class="form-group">
+							<input class="btn btn-info" type="submit" name="valider" value="Enregistrer"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

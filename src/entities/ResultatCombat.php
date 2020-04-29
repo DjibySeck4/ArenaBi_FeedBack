@@ -1,142 +1,228 @@
 <?php
+
 use Doctrine\ORM\Annotation as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+
 /**
- * @Entity 
- * @Table(name="resultatCombat")
+ * @Entity @Table(name="resultatCombat")
  **/
 class ResultatCombat
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $idResultat;
-
-     /** @column(type="integer") */
-     private $idVainqueur;
-
-     /** @column(type="integer") */
-     private $idPerdant;
-    /** @Column(type="integer", length=12, nullable=true) **/
-    private $dureeCombat;
-
-     /** @Column(type="boolean") **/
-    private $isMatchNull;
-
-    /** @Column(type="boolean") **/
-    private $isSansVerdict;
-
-    /** @Column(type="text") **/
-    private $description;
-
-   /**
-    * @OneToOne(targetEntity="TypeDeChute")
-    * @JoinColumn(name="typeDeChute_id", referencedColumnName="idTypeDeChute")
-    */
-    private $idTypeChute;
-
-     /**
-     * One  ResultatCombat has many videos. This is the inverse side.
-     * @OneToMany(targetEntity="Video", mappedBy="resultatCombat")
+    /**
+     * @OneToOne(targetEntity="Combat", inversedBy="resultatCombat",cascade={"persist"})
+     * @JoinColumn(name="idCombat", referencedColumnName="idCombat")
      */
+    private $combat;
+    /** @column(type="integer") */
+    private $dureeCombat;
+    /** @column(type="integer") */
+    private $idVainqueur;
+    /** @column(type="integer") */
+    private $idPerdant;
+    /**  @Column(type="string") **/
+    private $description;
+    /**  @Column(type="boolean") **/
+    private $isMatchNull;
+    /**  @Column(type="boolean") **/
+    private $isSansVerdict;
+    /**
+     * @ManyToOne(targetEntity="TypeDeChute", inversedBy="resultatCombat")
+     * @JoinColumn(name="idTypeDeChute", referencedColumnName="idTypeDeChute")
+     */
+    private $typeDeChute;
+    /**
+     * @OneToMany(targetEntity="Photo", mappedBy="resultatCombat")
+     **/
+    private $photos;
+    /**
+     * @OneToMany(targetEntity="Video", mappedBy="resultatCombat")
+     **/
     private $videos;
 
-    /**
-     * One  ResultatCombat has many photos. This is the inverse side.
-     * @OneToMany(targetEntity="Photo", mappedBy="resultatCombat")
-     */
-    private $photos;
 
-     /**
-     * @OneToOne(targetEntity="Combat", inversedBy="resultatCombats")
-     * @JoinColumn(name="combat_id", referencedColumnName="idCombat")
-     */
-    private $idCombat;
-    
+
     public function __construct()
     {
+        $this->photos = new ArrayCollection();
         $this->videos = new ArrayCollection();
-        $this->idTypeChute = new ArrayCollection();
-        $this->idCombat = new ArrayCollection();
     }
-    public function getIdResultatCombat()
+
+    /**
+     * Get the value of idResultat
+     */ 
+    public function getIdResultat()
     {
         return $this->idResultat;
     }
-    public function setIdResltatCombat($idResultat)
+
+    /**
+     * Set the value of idResultat
+     */ 
+    public function setIdResultat($idResultat)
     {
-        $this->id = $idResultat;
+        $this->idResultat = $idResultat;
     }
 
+    /**
+     * Get the value of dureeCombat
+     */ 
     public function getDureeCombat()
     {
         return $this->dureeCombat;
     }
+
+    /**
+     * Set the value of dureeCombat
+     */ 
     public function setDureeCombat($dureeCombat)
     {
-        $this->id = $dureeCombat;
+        $this->dureeCombat = $dureeCombat;
     }
 
-    public function isMatchNull()
-    {
-        return $this->isMatchNull;
-    }
-    public function setIsMatchNull($isMatchNull)
-    {
-        $this->isMatchNull = $isMatchNull;
-    }
-
-    public function isSansVerdict()
-    {
-        return $this->isSansVerdict;
-    }
-    public function setIsSansVerdict($isSansVerdict)
-    {
-        $this->isSansVerdict = $isSansVerdict;
-    }
-
-    public function getDescription()
-    {
-        return $this->description;
-    }
-    public function setDescription($description)
-    {
-        $this->description = $description;
-    }
-
+    /**
+     * Get the value of idVainqueur
+     */ 
     public function getIdVainqueur()
     {
         return $this->idVainqueur;
     }
+
+    /**
+     * Set the value of idVainqueur
+     */ 
     public function setIdVainqueur($idVainqueur)
     {
         $this->idVainqueur = $idVainqueur;
     }
 
-    public function getIdTypeChute()
+    /**
+     * Get the value of idPerdant
+     */ 
+    public function getIdPerdant()
     {
-        return $this->idTypeChute;
-    }
-    public function setIdTypeChute($idTypeChute)
-    {
-        $this->idTypeChute = $idTypeChute;
+        return $this->idPerdant;
     }
 
+    /**
+     * Set the value of idPerdant
+     */ 
+    public function setIdPerdant($idPerdant)
+    {
+        $this->idPerdant = $idPerdant;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set the value of description
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * Get the value of isMatchNull
+     */ 
+    public function getIsMatchNull()
+    {
+        return $this->isMatchNull;
+    }
+
+    /**
+     * Set the value of isMatchNull
+     */ 
+    public function setIsMatchNull($isMatchNull)
+    {
+        $this->isMatchNull = $isMatchNull;
+    }
+
+    /**
+     * Get the value of isSansVerdict
+     */ 
+    public function getIsSansVerdict()
+    {
+        return $this->isSansVerdict;
+    }
+
+    /**
+     * Set the value of isSansVerdict
+     */ 
+    public function setIsSansVerdict($isSansVerdict)
+    {
+        $this->isSansVerdict = $isSansVerdict;
+    }
+
+    /**
+     * Get the value of photos
+     */ 
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * Set the value of photos
+     */ 
+    public function setPhotos($photos)
+    {
+        $this->photos = $photos;
+    }
+
+    /**
+     * Get the value of videos
+     */ 
     public function getVideos()
     {
         return $this->videos;
     }
+
+    /**
+     * Set the value of videos
+     */ 
     public function setVideos($videos)
     {
         $this->videos = $videos;
     }
 
-    public function getPhotos()
+    /**
+     * Get the value of combat
+     */ 
+    public function getCombat()
     {
-        return $this->photos;
+        return $this->combat;
     }
-    public function setPhotos($photos)
+
+    /**
+     * Set the value of combat
+     */ 
+    public function setCombat($combat)
     {
-        $this->photos = $photos;
+        $this->combat = $combat;
+    }
+
+    /**
+     * Get the value of typeDeChute
+     */ 
+    public function getTypeDeChute()
+    {
+        return $this->typeDeChute;
+    }
+
+    /**
+     * Set the value of typeDeChute
+     */ 
+    public function setTypeDeChute($typeDeChute)
+    {
+        $this->typeDeChute = $typeDeChute;
     }
 }
-
 ?>

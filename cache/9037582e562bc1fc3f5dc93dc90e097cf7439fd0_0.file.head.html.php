@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-16 16:08:44
+/* Smarty version 3.1.30, created on 2020-04-21 18:11:03
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\head.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e9866ec4f59c3_62921134',
+  'unifunc' => 'content_5e9f1b17d0a242_08628446',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9037582e562bc1fc3f5dc93dc90e097cf7439fd0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\head.html',
-      1 => 1587045926,
+      1 => 1587485461,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e9866ec4f59c3_62921134 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e9f1b17d0a242_08628446 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- <====== Le contenu de <head> =====> -->
@@ -41,16 +41,36 @@ function content_5e9866ec4f59c3_62921134 (Smarty_Internal_Template $_smarty_tpl)
 <title>Aréna Bi</title>
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 <!--CSS-->
-<link rel="stylesheet" href="public/magazine/css/linearicons.css">
-<link rel="stylesheet" href="public/magazine/css/font-awesome.min.css">
-<link rel="stylesheet" href="public/magazine/css/bootstrap.css">
-<link rel="stylesheet" href="public/magazine/css/magnific-popup.css">
-<link rel="stylesheet" href="public/magazine/css/nice-select.css">
-<link rel="stylesheet" href="public/magazine/css/animate.min.css">
-<link rel="stylesheet" href="public/magazine/css/owl.carousel.css">
-<link rel="stylesheet" href="public/magazine/css/jquery-ui.css">
-<link rel="stylesheet" href="public/magazine/css/main.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/linearicons.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/font-awesome.min.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/bootstrap.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/magnific-popup.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/nice-select.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/animate.min.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/owl.carousel.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/jquery-ui.css">
+<link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/magazine/css/main.css">
+
+<!-- l'appel de <?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+ vous permet de recupérer le chemin de votre site web  -->
+<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/css/samane.css"/>
+
 
 <!-- <====== End Le contenu de <head> =====> -->
+
+
+
 <?php }
 }

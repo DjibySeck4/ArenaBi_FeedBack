@@ -17,9 +17,15 @@ class Ecurie
     private $dateCreation;
 
     /** @Column(type="string") **/
-    private $description;
+    private $descriptionEntraineur;
 
-    /** @Column(type="integer") **/
+     /**
+     * @ManyToMany(targetEntity="Entraineur",cascade={"persist"})
+     * @JoinTable(name="entrainer1",
+     *      joinColumns={@JoinColumn(name="idEcurie", referencedColumnName="idEcurie")},
+     *      inverseJoinColumns={@JoinColumn(name="idEntraineur", referencedColumnName="idEntraineur")}
+     *      )
+     */
     private $idEntraineur; 
 
     /**
@@ -59,15 +65,15 @@ class Ecurie
         $this->dateCreation = $dateCreation;
     }
 
-    public function getDescription()
+    public function getDescriptionEntraineur()
     {
-        return $this->description;
+        return $this->descriptionEntraineur;
     }
-    public function setDescription($description)
+    public function setDescriptionEntraineur($descriptionEntraineur)
     {
-        $this->description = $description;
+        $this->descriptionEntraineur = $descriptionEntraineur;
     }
-
+  
     public function getIdManager()
     {
         return $this->idManager;
@@ -94,6 +100,8 @@ class Ecurie
     {
         $this->managers = $managers;
     }
+
+   
 }
 
 ?>
