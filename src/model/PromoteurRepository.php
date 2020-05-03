@@ -57,7 +57,7 @@ class PromoteurRepository extends Model
             $getPromoteur->getPersonne()->setMetierPersonne($promoteur->getPersonne()->getMetierPersonne());
             $getPromoteur->getPersonne()->setSexe($promoteur->getPersonne()->getSexe());
             $getPromoteur->getPersonne()->setNationalite($promoteur->getPersonne()->getNationalite());
-            $getPromoteur->setDescriptionPromoteur($promoteur->getDescriptionPromoteur());
+            $getPromoteur->getPersonne()->setDescription($promoteur->getPersonne()->getDescription());
             $this->db->flush();
             return $promoteur->getIdPromoteur();
         } else {
@@ -95,5 +95,11 @@ class PromoteurRepository extends Model
     public function getPersonne($id)
     {
         return $this->db->getRepository('Personne')->find(array('idPersonne' => $id));
+    }
+
+    public function getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $sexe, $nationalite)
+    {
+        return $this->db->getRepository('Personne')->findBy(array('nom' => $nom, 'prenom' => $prenom, 'surnom' => $surnom,
+        'dateNaissance' => $dateNaissance, 'adresse' => $adresse, 'ville' => $ville, 'sexe' => $sexe, 'nationalite' => $nationalite));
     }
 } 

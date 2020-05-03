@@ -16,8 +16,7 @@ class Promoteur
     private $personne;
     /** @column(type="string", length=20, nullable=false) */
     private $nomStructure;
-    /** @column(type="string", length=100, nullable=false) */
-    private $descriptionPromoteur;
+   
     /**
      * @OneToMany(targetEntity="Combat", mappedBy="promoteur")
      **/
@@ -79,22 +78,6 @@ class Promoteur
     public function setNomStructure($nomStructure)
     {
         $this->nomStructure = $nomStructure;
-    }
-
-    /**
-     * Get the value of descriptionPromoteur
-     */ 
-    public function getDescriptionPromoteur()
-    {
-        return $this->descriptionPromoteur;
-    }
-
-    /**
-     * Set the value of descriptionPromoteur
-     */ 
-    public function setDescriptionPromoteur($descriptionPromoteur)
-    {
-        $this->descriptionPromoteur = $descriptionPromoteur;
     }
 
     /**

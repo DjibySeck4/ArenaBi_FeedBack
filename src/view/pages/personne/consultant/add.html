@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Add entraineur</title>
+		<title>Add consultant</title>
 		 <!-- <====== Contenu de <head> =====> -->
             {include file='../../../partials/contenu_index/head.html'}
             <!-- <====== End Contenu de <head> =====> -->
@@ -11,7 +11,7 @@
 			}
 		</style>
 	</head>
-	<body  class="well">
+	<body class="well">
 		 <!-- <====== Top Barre =====> -->
          {include file='../../../partials/contenu_index/top_barre.html'}
          <!-- <====== End Top Barre =====> -->
@@ -25,12 +25,12 @@
 
 	<div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
 		<div class="panel panel-info">
-		<div class="panel-heading"><b>Formulaire d'ajout d'un entraineur</b></div>
+		<div class="panel-heading"><b>Formulaire d'ajout d'un consultant</b></div>
 			<div class="panel-body">
-				<form  class="well" action="{$url_base}Entraineur/add" method="POST" enctype="multipart/form-data">
+				<form  class="well" action="{$url_base}Consultant/add" method="POST" enctype="multipart/form-data">
 					{include file='../../../partials/contenu_extract/personne/formulairedAjout.html'}
 					<div class="form-group">
-						<input class="btn btn-info" type="submit" name="valider" value="Enregistrer"/>
+						<input class="btn btn-info" type="submit" name="valider" value="Enregistrer" id="button_soumission"/>
 						<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
 					</div>
 				</form>

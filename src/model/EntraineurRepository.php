@@ -43,28 +43,28 @@ class EntraineurRepository extends Model
      * @param Entraineur $entraineur
      * @return int
      */
-    public function updateEntraineur($entraineur)
-    {
-        $getEntraineur = $this->db->find('Entraineur', $entraineur->getIdEntraineur());
-        if ($getEntraineur != null) {
-            $getEntraineur->getPersonne()->setNom($entraineur->getPersonne()->getNom());
-            $getEntraineur->getPersonne()->setPrenom($entraineur->getPersonne()->getPrenom());
-            $getEntraineur->getPersonne()->setSurnom($entraineur->getPersonne()->getsurnom());
-            $getEntraineur->getPersonne()->setDateNaissance($entraineur->getPersonne()->getDateNaissance());
-            $getEntraineur->getPersonne()->setAdresse($entraineur->getPersonne()->getAdresse());
-            $getEntraineur->getPersonne()->setVille($entraineur->getPersonne()->getVille());
-            $getEntraineur->getPersonne()->setPhotoEntraineur($entraineur->getPersonne()->getPhotoEntraineur());
-            $getEntraineur->getPersonne()->setMetierEntraineur($entraineur->getPersonne()->getMetierEntraineur());
-            $getEntraineur->getPersonne()->setSexe($entraineur->getPersonne()->getSexe());
-            $getEntraineur->getPersonne()->setNationalite($entraineur->getPersonne()->getNationalite());
-            $getEntraineur->setDescriptionEntraineur($entraineur->getDescriptionEntraineur());
-            $getEntraineur->setEcurie($entraineur->getEcurie());
-            $this->db->flush();
-            return $entraineur->getIdEntraineur();
-        } else {
-            die("Objet " . $entraineur->getIdEntraineur() . " does not existe!!");
-        }
-    }
+    // public function updateEntraineur($entraineur)
+    // {
+    //     $getEntraineur = $this->db->find('Entraineur', $entraineur->getIdEntraineur());
+    //     if ($getEntraineur != null) {
+    //         $getEntraineur->getPersonne()->setNom($entraineur->getPersonne()->getNom());
+    //         $getEntraineur->getPersonne()->setPrenom($entraineur->getPersonne()->getPrenom());
+    //         $getEntraineur->getPersonne()->setSurnom($entraineur->getPersonne()->getsurnom());
+    //         $getEntraineur->getPersonne()->setDateNaissance($entraineur->getPersonne()->getDateNaissance());
+    //         $getEntraineur->getPersonne()->setAdresse($entraineur->getPersonne()->getAdresse());
+    //         $getEntraineur->getPersonne()->setVille($entraineur->getPersonne()->getVille());
+    //         $getEntraineur->getPersonne()->setPhotoEntraineur($entraineur->getPersonne()->getPhotoEntraineur());
+    //         $getEntraineur->getPersonne()->setMetierEntraineur($entraineur->getPersonne()->getMetierEntraineur());
+    //         $getEntraineur->getPersonne()->setSexe($entraineur->getPersonne()->getSexe());
+    //         $getEntraineur->getPersonne()->setNationalite($entraineur->getPersonne()->getNationalite());
+    //         $getEntraineur->getPersonne()->setDescription($entraineur->getPersonne()->getDescription());
+    //         $getEntraineur->setEcurie($entraineur->getEcurie());
+    //         $this->db->flush();
+    //         return $entraineur->getIdEntraineur();
+    //     } else {
+    //         die("Objet " . $entraineur->getIdEntraineur() . " does not existe!!");
+    //     }
+    // }
 
     /**
      * suppression d'une Entraineur
@@ -100,5 +100,11 @@ class EntraineurRepository extends Model
     public function getEcurie($id)
     {
         return $this->db->getRepository('Ecurie')->find(array('idEcurie' => $id));
+    }
+
+    public function getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $sexe, $nationalite)
+    {
+        return $this->db->getRepository('Personne')->findBy(array('nom' => $nom, 'prenom' => $prenom, 'surnom' => $surnom,
+        'dateNaissance' => $dateNaissance, 'adresse' => $adresse, 'ville' => $ville, 'sexe' => $sexe, 'nationalite' => $nationalite));
     }
 }

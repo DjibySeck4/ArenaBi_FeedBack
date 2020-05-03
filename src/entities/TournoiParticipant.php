@@ -1,14 +1,14 @@
 <?php
 
-
 /**
  * @Entity @Table(name="tournoiParticipant")
  **/
 
 class TournoiParticipant
 {
-     /** @Id @Column(type="integer") @GeneratedValue **/
-     private $idTournoiParticipant;
+    /** @Id @Column(type="integer") **/
+    private $idTournoiParticipant;
+
     /**
      * @Id
      * @ManyToOne(targetEntity="Lutteur", inversedBy="tournoiParticipant")
@@ -28,6 +28,11 @@ class TournoiParticipant
      */
     private $idTournoiPoule;
 
+    public function __construct()
+    {
+       
+    }
+    
 
     public function getIdTournoiParticipant()
     {
@@ -86,5 +91,4 @@ class TournoiParticipant
         $this->idTournoiPoule = $idTournoiPoule;
     }
 
-    
 }

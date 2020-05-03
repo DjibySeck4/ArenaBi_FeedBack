@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-21 17:54:38
+/* Smarty version 3.1.30, created on 2020-05-02 00:03:11
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\scripts.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e9f173e1761b4_62108579',
+  'unifunc' => 'content_5eac9c9f803aa5_05463115',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '66ae195d641266eecf248b3dd7553df68a334517' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\scripts.html',
-      1 => 1587484272,
+      1 => 1588370050,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e9f173e1761b4_62108579 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eac9c9f803aa5_05463115 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
  <!-- <====== Script =====> -->
  <?php echo '<script'; ?>
@@ -81,6 +81,12 @@ public/magazine/js/mail-script.js"><?php echo '</script'; ?>
  <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/magazine/js/main.js"><?php echo '</script'; ?>
+>
+
+ 
+<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+public/js/validation.js"><?php echo '</script'; ?>
 >
   <!-- <====== End Script =====> --><?php }
 }

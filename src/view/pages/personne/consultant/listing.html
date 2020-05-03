@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Listing</title>
+		<title>Listing consultant</title>
 		 <!-- <====== Contenu de <head> =====> -->
             {include file='../../../partials/contenu_index/head.html'}
             <!-- <====== End Contenu de <head> =====> -->
@@ -11,7 +11,7 @@
 			}   
 		</style>
 	</head>
-	<body>
+	<body class="well"> 
 		 <!-- <====== Top Barre =====> -->
          {include file='../../../partials/contenu_index/top_barre.html'}
          <!-- <====== End Top Barre =====> -->
@@ -48,22 +48,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {foreach from=$liste_arbitres item=$arbitre}
+                            {foreach from=$liste_consultant item=$consultant}
                                 <tr>
-                                    <td>{$arbitre->getPersonne()->getIdPersonne()}</td>
-                                    <td><img width="45px" height="30px" src="{$url_base}public/images/{$arbitre->getPersonne()->getPhotoPersonne()}" alt="photo"></td>
-                                    <td>{$arbitre->getPersonne()->getNom()}</td>
-                                    <td>{$arbitre->getPersonne()->getPrenom()}</td>
-                                    <td>{$arbitre->getPersonne()->getSurnom()}</td>
-                                    <td>{$arbitre->getPersonne()->getDateNaissance ()}</td>
-                                    <td>{$arbitre->getPersonne()->getAdresse()}</td>
-                                    <td>{$arbitre->getPersonne()->getVille()}</td>
-                                    <td>{$arbitre->getPersonne()->getDescription()}</td>
-                                    <td>{$arbitre->getPersonne()->getMetierPersonne()}</td>
-                                    <td>{$arbitre->getPersonne()->getSexe()}</td>
-                                    <td>{$arbitre->getPersonne()->getNationalite()}</td>
-                                    <td><a href="{$url_base}Arbitre/edit/{$arbitre->getPersonne()->getIdPersonne()}">Editier</a></td>
-                                    <td><a href="{$url_base}Arbitre/delete/{$arbitre->getPersonne()->getIdPersonne()}" onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
+                                    <td>{$consultant->getPersonne()->getIdPersonne()}</td>
+                                    <td><img width="45px" height="30px" src="{$url_base}public/images/{$consultant->getPersonne()->getPhotoPersonne()}" alt="photo"></td>
+                                    <td>{$consultant->getPersonne()->getNom()}</td>
+                                    <td>{$consultant->getPersonne()->getPrenom()}</td>
+                                    <td>{$consultant->getPersonne()->getSurnom()}</td>
+                                    <td>{$consultant->getPersonne()->getDateNaissance ()}</td>
+                                    <td>{$consultant->getPersonne()->getAdresse()}</td>
+                                    <td>{$consultant->getPersonne()->getVille()}</td>
+                                    <td>{$consultant->getPersonne()->getDescription()}</td>
+                                    <td>{$consultant->getPersonne()->getMetierPersonne()}</td>
+                                    <td>{$consultant->getPersonne()->getSexe()}</td>
+                                    <td>{$consultant->getPersonne()->getNationalite()}</td>
+                                    <td><a href="{$url_base}Consultant/edit/{$consultant->getPersonne()->getIdPersonne()}">Editier</a></td>
+                                    <td><a href="{$url_base}Consultant/delete/{$consultant->getPersonne()->getIdPersonne()}" onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
                                 </tr>
                             {/foreach}
                         <tbody>

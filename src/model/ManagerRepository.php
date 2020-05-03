@@ -57,7 +57,7 @@ class ManagerRepository extends Model
             $getManager->getPersonne()->setMetierPersonne($manager->getPersonne()->getMetierPersonne());
             $getManager->getPersonne()->setSexe($manager->getPersonne()->getSexe());
             $getManager->getPersonne()->setNationalite($manager->getPersonne()->getNationalite());
-            $getManager->setDescriptionManager($manager->getDescriptionManager());
+            $getManager->getPersonne()->setDescription($manager->getPersonne()->getDescription());
             $this->db->flush();
             return $manager->getIdManager();
         } else {
@@ -95,5 +95,11 @@ class ManagerRepository extends Model
     public function getPersonne($id)
     {
         return $this->db->getRepository('Personne')->find(array('idPersonne' => $id));
+    }
+
+    public function getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $sexe, $nationalite)
+    {
+        return $this->db->getRepository('Personne')->findBy(array('nom' => $nom, 'prenom' => $prenom, 'surnom' => $surnom,
+        'dateNaissance' => $dateNaissance, 'adresse' => $adresse, 'ville' => $ville, 'sexe' => $sexe, 'nationalite' => $nationalite));
     }
 }

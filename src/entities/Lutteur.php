@@ -21,9 +21,6 @@ class Lutteur
     /** @column(type="string", length=20, nullable=false) */
     private $categorieVipAutres;
 
-    /** @column(type="string") */
-    private $descriptionLutteur;
-
     /**.
      * @ManyToMany(targetEntity="Combat", mappedBy="lutteur")
      */
@@ -110,23 +107,7 @@ class Lutteur
     {
         $this->categorieVipAutres = $categorieVipAutres;
     }
-
-    /**
-     * Get the value of descriptionLutteur
-     */ 
-    public function getDescriptionLutteur()
-    {
-        return $this->descriptionLutteur;
-    }
-
-    /**
-     * Set the value of descriptionLutteur
-     */ 
-    public function setDescriptionLutteur($descriptionLutteur)
-    {
-        $this->descriptionLutteur = $descriptionLutteur;
-    }
-
+    
     /**
      * Get the value of combats
      */ 

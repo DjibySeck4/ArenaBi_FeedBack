@@ -1,23 +1,24 @@
 <?php
 
 use libs\system\Controller;
-use src\model\ConsultantRepository;
+use src\model\ArbitreRepository;
+use src\model\EntraineurRepository;
 use src\model\PersonneRepository;
 
-class ConsultantController extends Controller{
+class EntraineurController extends Controller{
 
     public function __construct(){
         parent::__construct();
     }
 
     public function ajouter(){
-        return $this->view->load("pages/personne/consultant/add");
+        return $this->view->load("pages/personne/entraineur/add");
     }
 
     public function liste(){
-        $consultant_db = new ConsultantRepository;
-        $data['liste_consultant'] = $consultant_db->listeConsultants();
-        $this->view->load('pages/personne/consultant/listing',$data);
+        $entraineur_db = new EntraineurRepository;
+        $data['liste_entraineurs'] = $entraineur_db->listeEntraineurs();
+        $this->view->load('pages/personne/entraineur/listing',$data);
     }
 
     public function listePersonne(){
@@ -28,24 +29,23 @@ class ConsultantController extends Controller{
 
     public function add()
     {
-        $consultant = $this->listePersonne();
-        $consultant_db = new ConsultantRepository;
+        $personnes = $this->listePersonne();
+        $entraineur_db = new EntraineurRepository;
         if(isset($_POST['valider']))
         {
             extract($_POST);
 
-            $personne = $consultant_db->getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $genre, $nationalite);
+            $personne = $entraineur_db->getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $genre, $nationalite);
             if($personne != null)
             {
                 $idPersonne = $personne[0]->getIdPersonne();
-                $consultant = new Consultant();
-                $consultant->setPersonne($consultant_db->getPersonne($idPersonne));
-
+                $entraineur = new Entraineur();
+                $entraineur->setPersonne($entraineur_db->getPersonne($idPersonne));
                 
-                $consultant_db->addConsultant($consultant);
+                $entraineur_db->addEntraineur($entraineur);
                 return $this->liste();    
             }
-               
+                // var_dump($personne->getSurnom()); die;
                 $photo_name = $_FILES['photo']['name'];
                 $file_tmp_name = $_FILES['photo']['tmp_name'];
                 move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
@@ -68,12 +68,12 @@ class ConsultantController extends Controller{
                 $id = $personne_db->addPersonne($personne);
                 
                 // on charge son id dans la table Arbitre
-                $consultant_db = new ConsultantRepository;
-                $consultant = new Consultant();
-                $consultant->setPersonne($consultant_db->getPersonne($id));
+                $entraineur_db = new EntraineurRepository;
+                $entraineur = new Entraineur();
+                $entraineur->setPersonne($entraineur_db->getPersonne($id));
         
                 // puis on ajoute Arbitre
-                $consultant_db->addConsultant($consultant);
+                $entraineur_db->addEntraineur($entraineur);
                 return $this->liste();    
         }     
     }
@@ -82,8 +82,8 @@ class ConsultantController extends Controller{
     {
         extract($_POST);
         
-        $consultant_db = new ConsultantRepository;
-        $personne = $consultant_db->getPersonne($idPersonne);
+        $entraineur_db = new EntraineurRepository;
+        $personne = $entraineur_db->getPersonne($idPersonne);
     
         $photo_name = $_FILES['photo']['name'];
         $file_tmp_name = $_FILES['photo']['tmp_name'];
@@ -113,7 +113,6 @@ class ConsultantController extends Controller{
     public function edit($id){
         $personne_db = new PersonneRepository;
         $data['personne'] = $personne_db->getPersonne($id);
-        return $this->view->load("pages/personne/consultant/edit", $data);
-    }
-    
+        return $this->view->load("pages/personne/entraineur/edit", $data);
+    }  
 }

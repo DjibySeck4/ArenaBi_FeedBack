@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-21 18:11:03
+/* Smarty version 3.1.30, created on 2020-05-01 23:02:03
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\head.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e9f1b17d0a242_08628446',
+  'unifunc' => 'content_5eac8e4ba8a9b4_10394618',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9037582e562bc1fc3f5dc93dc90e097cf7439fd0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\head.html',
-      1 => 1587485461,
+      1 => 1588366892,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e9f1b17d0a242_08628446 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eac8e4ba8a9b4_10394618 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- <====== Le contenu de <head> =====> -->
@@ -66,7 +66,6 @@ public/magazine/css/main.css">
 public/css/bootstrap.min.css"/>
 <link type="text/css" rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/css/samane.css"/>
-
 
 <!-- <====== End Le contenu de <head> =====> -->
 

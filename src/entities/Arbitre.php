@@ -15,9 +15,6 @@ class Arbitre
      * @JoinColumn(name="idPersonne", referencedColumnName="idPersonne")
      */
     private $personne;
-
-    /** @column(type="string", length=100, nullable=false) */
-    private $descriptionArbitre;
     
     /**
      * @ManyToMany(targetEntity="Combat", mappedBy="arbitre")
@@ -59,22 +56,6 @@ class Arbitre
     public function setPersonne($personne)
     {
         $this->personne = $personne;
-    }
-
-    /**
-     * Get the value of descriptionArbitre
-     */ 
-    public function getDescriptionArbitre()
-    {
-        return $this->descriptionArbitre;
-    }
-
-    /**
-     * Set the value of descriptionArbitre
-     */ 
-    public function setDescriptionArbitre($descriptionArbitre)
-    {
-        $this->descriptionArbitre = $descriptionArbitre;
     }
 
     /**

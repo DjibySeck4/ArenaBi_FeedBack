@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-02 01:36:59
-  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\arbitre\listing.html" */
+/* Smarty version 3.1.30, created on 2020-05-01 22:40:50
+  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\entraineur\listing.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eacb29beef435_45206030',
+  'unifunc' => 'content_5eac8952035a49_44544110',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2f7ff617a5cbf71b1cf2dbefd0875d0eff898aff' => 
+    '9779eee53b04de01bbe5b0777acc1a23e69b175d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\arbitre\\listing.html',
-      1 => 1588367342,
+      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\entraineur\\listing.html',
+      1 => 1588365349,
       2 => 'file',
     ),
   ),
@@ -22,15 +22,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../../partials/contenu_index/top_barre.html' => 1,
     'file:../../../partials/contenu_index/logo_barre.html' => 1,
     'file:../../../partials/contenu_index/menu.html' => 1,
-    'file:../../../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5eacb29beef435_45206030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eac8952035a49_44544110 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Listing</title>
+		<title>Listing entraineur</title>
 		 <!-- <====== Contenu de <head> =====> -->
             <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -86,41 +85,41 @@ function content_5eacb29beef435_45206030 (Smarty_Internal_Template $_smarty_tpl)
                         </thead>
                         <tbody>
                             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['liste_arbitres']->value, 'arbitre');
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['liste_entraineurs']->value, 'entraineur');
 if ($_from !== null) {
-foreach ($_from as $_smarty_tpl->tpl_vars['arbitre']->value) {
+foreach ($_from as $_smarty_tpl->tpl_vars['entraineur']->value) {
 ?>
                                 <tr>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getIdPersonne();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getIdPersonne();?>
 </td>
                                     <td><img width="45px" height="30px" src="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-public/images/<?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getPhotoPersonne();?>
+public/images/<?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getPhotoPersonne();?>
 " alt="photo"></td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getNom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getNom();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getPrenom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getPrenom();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getSurnom();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getSurnom();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getDateNaissance();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getDateNaissance();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getAdresse();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getAdresse();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getVille();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getVille();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getDescription();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getDescription();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getMetierPersonne();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getMetierPersonne();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getSexe();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getSexe();?>
 </td>
-                                    <td><?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getNationalite();?>
+                                    <td><?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getNationalite();?>
 </td>
                                     <td><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-Arbitre/edit/<?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getIdPersonne();?>
+Entraineur/edit/<?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getIdPersonne();?>
 ">Editier</a></td>
                                     <td><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-Arbitre/delete/<?php echo $_smarty_tpl->tpl_vars['arbitre']->value->getPersonne()->getIdPersonne();?>
+Entraineur/delete/<?php echo $_smarty_tpl->tpl_vars['entraineur']->value->getPersonne()->getIdPersonne();?>
 " onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
                                 </tr>
                             <?php
@@ -133,13 +132,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                     </table>
 				</div>
 			</div>
-		</div>
-        
-         <!-- <====== Script =====> -->
-		  <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/scripts.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-?>
-
-		  <!-- <====== End Script =====> -->
+		</div>	
 	</body>
 </html>
 <?php }

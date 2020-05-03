@@ -14,8 +14,7 @@ class Consultant
      * @JoinColumn(name="idPersonne", referencedColumnName="idPersonne")
      */
     private $personne;
-    /** @column(type="string", length=100, nullable=false) */
-    private $descriptionConsultant;
+
     /**
      * @ManyToMany(targetEntity="Combat", mappedBy="consultant")
      **/
@@ -25,23 +24,6 @@ class Consultant
     {
 
         $this->combats = new ArrayCollection();
-    }
-
-
-    /**
-     * Get the value of idConsultant
-     */ 
-    public function getIdConsultant()
-    {
-        return $this->idConsultant;
-    }
-
-    /**
-     * Set the value of idConsultant
-     */ 
-    public function setIdConsultant($idConsultant)
-    {
-        $this->idConsultant = $idConsultant;
     }
 
     /**

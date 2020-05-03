@@ -18,8 +18,6 @@ class Manager
      * @OneToMany(targetEntity="Lutteur", mappedBy="manager")
      **/
     private $lutteurs;
-    /** @column(type="string", length=100, nullable=false) */
-    private $descriptionManager;
 
     public function __construct()
     {
@@ -73,21 +71,5 @@ class Manager
     public function setLutteurs($lutteurs)
     {
         $this->lutteurs = $lutteurs;
-    }
-
-    /**
-     * Get the value of descriptionManager
-     */ 
-    public function getDescriptionManager()
-    {
-        return $this->descriptionManager;
-    }
-
-    /**
-     * Set the value of descriptionManager
-     */ 
-    public function setDescriptionManager($descriptionManager)
-    {
-        $this->descriptionManager = $descriptionManager;
     }
 }

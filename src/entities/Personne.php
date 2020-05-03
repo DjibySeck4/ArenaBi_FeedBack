@@ -29,8 +29,9 @@ class Personne
     private $sexe;
     /** @column(type="string", length=15, nullable=false) */
     private $nationalite;
-
-    
+    /** @column(type="text", nullable=false) */
+    private $description;
+        
     
 
     /**
@@ -207,6 +208,25 @@ class Personne
     public function setNationalite($nationalite)
     {
         $this->nationalite = $nationalite;
+    }
+
+    /**
+     * Get the value of description
+     */ 
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    /**
+     * Set the value of description
+     *
+     * @return  self
+     */ 
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
     }
 }
 

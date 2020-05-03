@@ -1,17 +1,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Listing</title>
+		<title>Listing entraineur</title>
 		 <!-- <====== Contenu de <head> =====> -->
             {include file='../../../partials/contenu_index/head.html'}
             <!-- <====== End Contenu de <head> =====> -->
 		<style>
 			h1{ 
 				color: #40007d;
-			}
+			}   
 		</style>
 	</head>
-	<body>
+	<body  class="well">
 		 <!-- <====== Top Barre =====> -->
          {include file='../../../partials/contenu_index/top_barre.html'}
          <!-- <====== End Top Barre =====> -->
@@ -24,9 +24,9 @@
          {include file='../../../partials/contenu_index/menu.html'}
 
 
-		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2" style="margin-top:70px; margin-left:150px;">
+		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:150px;">
 			<div class="panel panel-info">
-				<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
+				<div class="panel-heading">Liste des arbitres</div>
 				<div class="panel-body">
                     <table class="table table-bordered table-stripped">
                         <thead>
@@ -48,29 +48,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {foreach from=$liste_personnes item=$personne}
+                            {foreach from=$liste_entraineurs item=$entraineur}
                                 <tr>
-                                    <td>{$personne->getIdPersonne()}</td>
-                                    <td><img width="45px" height="30px" src="{$url_base}public/images/{$personne->getPhoto()}" alt="photo"></td>
-                                    <td>{$personne->getNom()}</td>
-                                    <td>{$personne->getPrenom()}</td>
-                                    <td>{$personne->getSurnom()}</td>
-                                    <td>{$personne->getDateNaissance()}</td>
-                                    <td>{$personne->getAdresse()}</td>
-                                    <td>{$personne->getVille()}</td>
-                                    <td>{$personne->getDescription()}</td>
-                                    <td>{$personne->getMetier()}</td>
-                                    <td>{$personne->getSexe()}</td>
-                                    <td>{$personne->getNationalite()}</td>
-                                    <td><a href="{$url_base}Personne/edit/{$personne->getIdPersonne()}">Editier</a></td>
-                                    <td><a href="{$url_base}Personne/delete/{$personne->getIdPersonne()}" onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
+                                    <td>{$entraineur->getPersonne()->getIdPersonne()}</td>
+                                    <td><img width="45px" height="30px" src="{$url_base}public/images/{$entraineur->getPersonne()->getPhotoPersonne()}" alt="photo"></td>
+                                    <td>{$entraineur->getPersonne()->getNom()}</td>
+                                    <td>{$entraineur->getPersonne()->getPrenom()}</td>
+                                    <td>{$entraineur->getPersonne()->getSurnom()}</td>
+                                    <td>{$entraineur->getPersonne()->getDateNaissance ()}</td>
+                                    <td>{$entraineur->getPersonne()->getAdresse()}</td>
+                                    <td>{$entraineur->getPersonne()->getVille()}</td>
+                                    <td>{$entraineur->getPersonne()->getDescription()}</td>
+                                    <td>{$entraineur->getPersonne()->getMetierPersonne()}</td>
+                                    <td>{$entraineur->getPersonne()->getSexe()}</td>
+                                    <td>{$entraineur->getPersonne()->getNationalite()}</td>
+                                    <td><a href="{$url_base}Entraineur/edit/{$entraineur->getPersonne()->getIdPersonne()}">Editier</a></td>
+                                    <td><a href="{$url_base}Entraineur/delete/{$entraineur->getPersonne()->getIdPersonne()}" onclick="return confirm('Voulez-vous bien supprimer ?')" >Suprimer</a></td>
                                 </tr>
                             {/foreach}
                         <tbody>
                     </table>
 				</div>
 			</div>
-		</div>
-		
+        </div>	
+        
+         <!-- <====== Script =====> -->
+		  {include file='../../../partials/contenu_index/scripts.html'}
+		  <!-- <====== End Script =====> -->
 	</body>
 </html>

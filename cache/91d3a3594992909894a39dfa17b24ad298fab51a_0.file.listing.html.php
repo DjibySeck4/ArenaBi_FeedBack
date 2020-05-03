@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-02 01:36:59
-  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\arbitre\listing.html" */
+/* Smarty version 3.1.30, created on 2020-05-02 22:31:25
+  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\lutteur\listing.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eacb29beef435_45206030',
+  'unifunc' => 'content_5eadd89dec1153_75268823',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '2f7ff617a5cbf71b1cf2dbefd0875d0eff898aff' => 
+    '91d3a3594992909894a39dfa17b24ad298fab51a' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\arbitre\\listing.html',
-      1 => 1588367342,
+      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\lutteur\\listing.html',
+      1 => 1588377335,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5eacb29beef435_45206030 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eadd89dec1153_75268823 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
 	<head>
@@ -42,7 +42,7 @@ function content_5eacb29beef435_45206030 (Smarty_Internal_Template $_smarty_tpl)
 			}   
 		</style>
 	</head>
-	<body>
+	<body  class="well">
 		 <!-- <====== Top Barre =====> -->
          <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/top_barre.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -61,7 +61,7 @@ function content_5eacb29beef435_45206030 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2" style="margin-top:70px; margin-left:150px;">
+		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:150px;">
 			<div class="panel panel-info">
 				<div class="panel-heading">Liste des arbitres</div>
 				<div class="panel-body">

@@ -47,6 +47,7 @@ class PersonneRepository extends Model
     {
         $getPersonne = $this->db->find('Personne', $personne->getIdPersonne());
         if ($getPersonne != null) {
+            $getPersonne->setIdPersonne($personne->getIdPersonne());
             $getPersonne->setNom($personne->getNom());
             $getPersonne->setPrenom($personne->getPrenom());
             $getPersonne->setSurnom($personne->getsurnom());
@@ -57,6 +58,7 @@ class PersonneRepository extends Model
             $getPersonne->setMetierPersonne($personne->getMetierPersonne());
             $getPersonne->setSexe($personne->getSexe());
             $getPersonne->setNationalite($personne->getNationalite());
+            $getPersonne->setDescription($personne->getDescription());
             $this->db->flush();
             return $personne->getIdPersonne();
         } else {

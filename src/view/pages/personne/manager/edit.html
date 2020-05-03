@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Editer personne</title>
+		<title>update arbitre</title>
 		 <!-- <====== Contenu de <head> =====> -->
-            {include file='../partials/contenu_index/head.html'}
+            {include file='../../../partials/contenu_index/head.html'}
             <!-- <====== End Contenu de <head> =====> -->
 		<style>
 			h1{ 
@@ -11,79 +11,94 @@
 			}
 		</style>
 	</head>
-	<body>
+	<body  class="well">
 		 <!-- <====== Top Barre =====> -->
-         {include file='../partials/contenu_index/top_barre.html'}
+         {include file='../../../partials/contenu_index/top_barre.html'}
          <!-- <====== End Top Barre =====> -->
 
          <!-- <====== Logo Barre =====> -->
-         {include file='../partials/contenu_index/logo_barre.html'}
+         {include file='../../../partials/contenu_index/logo_barre.html'}
          <!-- <====== End Logo Barre =====> -->
 
          <!-- <====== Menu principal =====> -->
-         {include file='../partials/contenu_index/menu.html'}
+         {include file='../../../partials/contenu_index/menu.html'}
 
 
-		<div class="col-md-7 col-xs-7 col-md-offset-2" style="margin-top:70px; margin-left:350;">
+
+		 <div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
 			<div class="panel panel-info">
-				<div class="panel-heading"><b>Changement des coordonnées de la personne</b></div>
+			<div class="panel-heading"><b>Changement des coordonnées de l'arbitre ...</b></div>
 				<div class="panel-body">
-                    <form method="post" action="{$url_base}Personne/update" class="well" enctype="multipart/form-data">
-                        <div class="form-group">
-							<label for="id" class="control-label">Identifiant</label>
-							<input class="form-control" type="text" name="id" id="id" readonly value="{$personne->getIdPersonne()}" required/>
-                        </div>
-						<div class="form-group">
-							<label for="nom" class="control-label">Nom</label>
-							<input class="form-control" type="text" name="nom" id="nom" value="{$personne->getNom()}" required/>
-                        </div>
-                        <div class="form-group">
-							<label for="prenom" class="control-label">Prénom</label>
-							<input class="form-control" type="text" name="prenom" id="prenom" value="{$personne->getPrenom()}" required/>
+					<form  class="well" action="{$url_base}Arbitre/update/{$personne->getIdPersonne()}" method="POST" enctype="multipart/form-data">
+						<div class="form-row">
+							<div class="form-group col-md-2">
+								<label for="id">Identifiant</label>
+								<input type="text" name="id" class="form-control" value="{$personne->getIdPersonne()}" readonly id="id" autofocus required >
+							</div>
+							<div class="form-group col-md-5">
+								<label for="nom">Nom</label>
+								<input type="text" name="nom" class="form-control" value="{$personne->getNom()}" placeholder="Nom" id="nom" autofocus required>
+							</div>
+							<div class="form-group col-md-5">
+								<label for="prenom">Prénom</label>
+								<input type="prenom" name="prenom" class="form-control" value="{$personne->getPrenom()}" placeholder="Prénom" id="prenom" required>
+							</div>
+						</div>
+						<div class="form-row">
+							<div class="col-4 form-group">
+								<label for="dateNaissance">Date de naissance</label>
+								<input type="date" name="dateNaissance" class="form-control" value="{$personne->getDateNaissance()}" placeholder="Date de naissance" id="dateNaissance" required>
+							</div>
+							<div class="col">
+								<label for="surnom">Surnom</label>
+								<input type="text" name="surnom" class="form-control" value="{$personne->getSurnom()}" placeholder="Surnom" id="surnom">
+							</div>
+							<div class="col">
+								<label for="ville">Ville</label>
+								<input type="text" name="ville" class="form-control" value="{$personne->getVille()}" placeholder="Ville" id="ville" required>
+							</div>
 						</div>
 						<div class="form-group">
-							<label for="surnom" class="control-label">Surom</label>
-							<input class="form-control" type="text" name="surnom" id="surnom" value="{$personne->getSurnom()}" required/>
-                        </div>
-                        <div class="form-group">
-							<label for="dateNaissance" class="control-label">Date de naissance</label>
-							<input class="form-control" type="date" name="dateNaissance" id="dateNaissance" value="{$personne->getDateNaissance()}" required/>
+							<label for="adresse">Adresse</label>
+							<input type="text" name="adresse" class="form-control" id="addresse" value="{$personne->getAdresse()}" placeholder="Vous-habitez ou ?" required>
 						</div>
-						<div class="form-group">
-							<label for="adresse" class="control-label">Adresse</label>
-							<input class="form-control" type="text" name="adresse" id="adresse" value="{$personne->getAdresse()}" required/>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="photo">Photo</label>
+								<input type="file" name="photo" class="form-control" id="photo" value="{$personne->getPhotoPersonne()}" required>
+							</div>
+							<div class="form-group col-md-3">
+								<label for="metier">Metier</label>
+								<input type="text" name="metier" class="form-control" id="metier" value="{$personne->getMetierPersonne()}">
+							</div>
+							<div class="form-group col-md-3">
+								<label for="nationalite">Nationalite</label>
+								<input type="text" name="nationalite" class="form-control" value="{$personne->getNationalite()}" placeholder="nationalite" id="nationalite">
+							</div>
+							<div class="form-group col-md-2">
+								<label for="genre">Genre</label>
+								<select id="genre" name="genre" class="form-control">
+									<option >Votre genre </option>
+									<option selected value="M">Masculin</option>
+									<option value="F">Feminin</option>
+								</select>
+							</div>	
 						</div>
-                        <div class="form-group">
-							<label for="ville" class="control-label">Ville</label>
-							<input class="form-control" type="text" name="ville" id="ville" value="{$personne->getVille()}" required/>
-                        </div>
-                        <div class="form-group">
-							<label for="photo" class="control-label">Photo</label>
-							<input class="form-control" type="file" name="photo" id="photo" value="{$personne->getPhoto()}"/>
-                        </div>
-                        <div class="form-group">
-							<label for="description" class="control-label">Description</label>
-							<textarea class="form-control" name="description" id="description" cols="30" rows=""  value="{$personne->getDescription()}"></textarea>
-                        </div>
-                        <div class="form-group">
-							<label for="metier" class="control-label">Metier</label>
-							<input class="form-control" type="text" name="metier" id="metier" value="{$personne->getMetier()}" required/>
-                        </div>
-                        <div class="form-group">
-							<label for="sexe" class="control-label">Sexe</label>
-							<input class="form-control" type="text" name="sexe" id="sexe" required value="{$personne->getSexe()}"/>
-                        </div>
-                        <div class="form-group">
-							<label for="nationalite" class="control-label">Nationalite</label>
-							<input class="form-control" type="text" name="nationalite" id="nationalite" value="{$personne->getNationalite()}" required/>
-                        </div>
+							<div class="form-group">
+								<label for="description">Description</label>
+								<textarea name="description" id="description" class="form-control"  rows="2">{$personne->getDescription()}</textarea>
+							</div>
 						<div class="form-group">
-							<input class="btn btn-info" type="submit" name="valider" value="Enregistrer"/>
+							<input class="btn btn-info" type="submit" name="editer" value="Enregistrer"/>
 							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+
+		 <!-- <====== Script =====> -->
+		 {include file='../../../partials/contenu_index/scripts.html'}
+		 <!-- <====== End Script =====> -->
 	</body>
 </html>

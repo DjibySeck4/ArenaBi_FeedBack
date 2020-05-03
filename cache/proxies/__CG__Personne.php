@@ -64,10 +64,10 @@ class Personne extends \Personne implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'Personne' . "\0" . 'idPersonne', '' . "\0" . 'Personne' . "\0" . 'nom', '' . "\0" . 'Personne' . "\0" . 'prenom', '' . "\0" . 'Personne' . "\0" . 'surnom', '' . "\0" . 'Personne' . "\0" . 'dateNaissance', '' . "\0" . 'Personne' . "\0" . 'adresse', '' . "\0" . 'Personne' . "\0" . 'ville', '' . "\0" . 'Personne' . "\0" . 'photoPersonne', '' . "\0" . 'Personne' . "\0" . 'metierPersonne', '' . "\0" . 'Personne' . "\0" . 'sexe', '' . "\0" . 'Personne' . "\0" . 'nationalite'];
+            return ['__isInitialized__', '' . "\0" . 'Personne' . "\0" . 'idPersonne', '' . "\0" . 'Personne' . "\0" . 'nom', '' . "\0" . 'Personne' . "\0" . 'prenom', '' . "\0" . 'Personne' . "\0" . 'surnom', '' . "\0" . 'Personne' . "\0" . 'dateNaissance', '' . "\0" . 'Personne' . "\0" . 'adresse', '' . "\0" . 'Personne' . "\0" . 'ville', '' . "\0" . 'Personne' . "\0" . 'photoPersonne', '' . "\0" . 'Personne' . "\0" . 'metierPersonne', '' . "\0" . 'Personne' . "\0" . 'sexe', '' . "\0" . 'Personne' . "\0" . 'nationalite', '' . "\0" . 'Personne' . "\0" . 'description'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'Personne' . "\0" . 'idPersonne', '' . "\0" . 'Personne' . "\0" . 'nom', '' . "\0" . 'Personne' . "\0" . 'prenom', '' . "\0" . 'Personne' . "\0" . 'surnom', '' . "\0" . 'Personne' . "\0" . 'dateNaissance', '' . "\0" . 'Personne' . "\0" . 'adresse', '' . "\0" . 'Personne' . "\0" . 'ville', '' . "\0" . 'Personne' . "\0" . 'photoPersonne', '' . "\0" . 'Personne' . "\0" . 'metierPersonne', '' . "\0" . 'Personne' . "\0" . 'sexe', '' . "\0" . 'Personne' . "\0" . 'nationalite'];
+        return ['__isInitialized__', '' . "\0" . 'Personne' . "\0" . 'idPersonne', '' . "\0" . 'Personne' . "\0" . 'nom', '' . "\0" . 'Personne' . "\0" . 'prenom', '' . "\0" . 'Personne' . "\0" . 'surnom', '' . "\0" . 'Personne' . "\0" . 'dateNaissance', '' . "\0" . 'Personne' . "\0" . 'adresse', '' . "\0" . 'Personne' . "\0" . 'ville', '' . "\0" . 'Personne' . "\0" . 'photoPersonne', '' . "\0" . 'Personne' . "\0" . 'metierPersonne', '' . "\0" . 'Personne' . "\0" . 'sexe', '' . "\0" . 'Personne' . "\0" . 'nationalite', '' . "\0" . 'Personne' . "\0" . 'description'];
     }
 
     /**
@@ -417,6 +417,28 @@ class Personne extends \Personne implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNationalite', [$nationalite]);
 
         return parent::setNationalite($nationalite);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getDescription()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDescription', []);
+
+        return parent::getDescription();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setDescription($description)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDescription', [$description]);
+
+        return parent::setDescription($description);
     }
 
 }

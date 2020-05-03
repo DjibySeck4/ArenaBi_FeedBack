@@ -34,37 +34,31 @@ class ConsultantRepository extends Model
         $this->db->persist($consultant);
         $this->db->flush();
 
-        return $consultant->getIdConsultant();
+        // return $consultant->getIdConsultant();
     }
-
-    /**
-     * Modification d'un Consultant
-     *
-     * @param Consultant $consultant
-     * @return int
-     */
-    public function updateConsultant($consultant)
-    {
-       $getConsultant = $this->db->find('Consultant', $consultant->getIdConsultant());
-        if ($getConsultant != null) {
-            $getConsultant->getPersonne()->setNom($consultant->getPersonne()->getNom());
-            $getConsultant->getPersonne()->setPrenom($consultant->getPersonne()->getPrenom());
-            $getConsultant->getPersonne()->setSurnom($consultant->getPersonne()->getsurnom());
-            $getConsultant->getPersonne()->setDateNaissance($consultant->getPersonne()->getDateNaissance());
-            $getConsultant->getPersonne()->setAdresse($consultant->getPersonne()->getAdresse());
-            $getConsultant->getPersonne()->setVille($consultant->getPersonne()->getVille());
-            $getConsultant->getPersonne()->setPhotoPersonne($consultant->getPersonne()->getPhotoPersonne());
-            $getConsultant->getPersonne()->setMetierPersonne($consultant->getPersonne()->getMetierPersonne());
-            $getConsultant->getPersonne()->setSexe($consultant->getPersonne()->getSexe());
-            $getConsultant->getPersonne()->setNationalite($consultant->getPersonne()->getNationalite());
-            $getConsultant->setDescriptionConsultant($consultant->getDescriptionConsultant());
-            $getConsultant->setCombat($consultant->getCombats());
-            $this->db->flush();
-            return $consultant->getIdConsultant();
-        } else {
-            die("Objet " . $consultant->getIdConsultant() . " does not existe!!");
-        }
-    }
+    
+    // public function updateConsultant($consultant)
+    // {
+    //    $getConsultant = $this->db->find('Consultant', $consultant->getIdConsultant());
+    //     if ($getConsultant != null) {
+    //         $getConsultant->getPersonne()->setNom($consultant->getPersonne()->getNom());
+    //         $getConsultant->getPersonne()->setPrenom($consultant->getPersonne()->getPrenom());
+    //         $getConsultant->getPersonne()->setSurnom($consultant->getPersonne()->getsurnom());
+    //         $getConsultant->getPersonne()->setDateNaissance($consultant->getPersonne()->getDateNaissance());
+    //         $getConsultant->getPersonne()->setAdresse($consultant->getPersonne()->getAdresse());
+    //         $getConsultant->getPersonne()->setVille($consultant->getPersonne()->getVille());
+    //         $getConsultant->getPersonne()->setPhotoPersonne($consultant->getPersonne()->getPhotoPersonne());
+    //         $getConsultant->getPersonne()->setMetierPersonne($consultant->getPersonne()->getMetierPersonne());
+    //         $getConsultant->getPersonne()->setSexe($consultant->getPersonne()->getSexe());
+    //         $getConsultant->getPersonne()->setNationalite($consultant->getPersonne()->getNationalite());
+    //         $getConsultant->setDescriptionConsultant($consultant->getDescriptionConsultant());
+    //         $getConsultant->setCombat($consultant->getCombats());
+    //         $this->db->flush();
+    //         return $consultant->getIdConsultant();
+    //     } else {
+    //         die("Objet " . $consultant->getIdConsultant() . " does not existe!!");
+    //     }
+    // }
 
     /**
      * suppression d'un Consultant
@@ -96,5 +90,11 @@ class ConsultantRepository extends Model
     public function getPersonne($id)
     {
         return $this->db->getRepository('Personne')->find(array('idPersonne' => $id));
+    }
+
+    public function getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $sexe, $nationalite)
+    {
+        return $this->db->getRepository('Personne')->findBy(array('nom' => $nom, 'prenom' => $prenom, 'surnom' => $surnom,
+        'dateNaissance' => $dateNaissance, 'adresse' => $adresse, 'ville' => $ville, 'sexe' => $sexe, 'nationalite' => $nationalite));
     }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-29 16:36:36
+/* Smarty version 3.1.30, created on 2020-05-02 01:45:05
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\menu.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5ea990f497c5c1_94445090',
+  'unifunc' => 'content_5eacb4812e7fa9_45773192',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91b5974e4bce51045ffa2682c2454ef30177964b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\menu.html',
-      1 => 1588170986,
+      1 => 1588376699,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,14 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ea990f497c5c1_94445090 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eacb4812e7fa9_45773192 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container main-menu" id="main-menu">
     <div class="row align-items-center justify-content-between">
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="menu-active"><a href="home">Home</a></li>
+                <li class="menu-active"><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+home">Home</a></li>
                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 public/magazine/archive.html">Archive</a></li>
                 <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
@@ -61,6 +62,8 @@ Manager/ajouter">Manager</a></li>
 Entraineur/ajouter">Entraîneur</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Promoteur/ajouter">Promoteur</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Consultant/ajouter">Consultant</a></li>
                 </ul>
             </li>
 
@@ -76,6 +79,8 @@ Manager/liste">Manager</a></li>
 Entraineur/liste">Entraîneur</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Promoteur/liste">Promoteur</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Consultant/liste">Consultant</a></li>
                 </ul>
             </li>
            

@@ -1,184 +1,208 @@
-// permet la desactivation de l'affichage des "tooltips"
-function deactivateTooltips() {
+$(document).ready(function(){
+    // $('#titre').on('mouseenter', Animations);
+    // function Animations()
+    // {
+    //     $('#titre').animate({width : '-=10%'},1000)
+    //     $('#titre').animate({fontSize : '30px'})
+    //     $('#titre').fadeOut(3000)
+    //     $('#titre').fadeIn(5000)
+    //     $('#titre').animate({width :'+=10%'},1000);
+    //     $('#titre').css('color','orange');
+    // }
+    // $('#Menu').hide();
+    // $('#animerMenu').on({
+    //     'mouseenter' : function()
+    //     {
+    //         $('#afficher_menu').css({
+    //             'color' : 'yellow',
+    //             'background' : 'rgb(79, 183, 197)'
+    //         });
+    //         $('#afficher_menu').text('Cliquer pour voir le menu');
+    //         $('#animerMenu').click(function(){
+    //             $('#Menu').show(1000);  
+    //         });
+             
+    //     },
+    //     'mouseleave' : function()
+    //     {
+    //         $('#Menu').delay(7000);
+    //         $('#Menu').hide(6000);
+    //         $('#afficher_menu').css({
+    //             'color' : '',
+    //             'background' : ''
+    //         });
+    //         $('#afficher_menu').text('Passer le curseur ici pour le Menu');     
+    //     }
+    // });
+    
+});
+var  button_soumission = document.getElementById('button_soumission');
 
-    var tooltips = document.querySelectorAll('.tooltip'),
-        tooltipsLength = tooltips.length;
+var nom = document.getElementById('nom');
+var nom_valid = document.getElementById('nom_valid');
 
-    for (var i = 0; i < tooltipsLength; i++) {
-        tooltips[i].style.display = 'none';
-    }
-}
+var prenom = document.getElementById('prenom');
+var prenom_valid = document.getElementById('prenom_valid');
 
-// permet de recuperer la "tooltip" qui correspond a notre input
-function getTooltip(elements) {
+var dateNaissance = document.getElementById('dateNaissance');
+var dateNaissance_valid = document.getElementById('dateNaissance_valid');
 
-    while (elements = elements.nextSibling) {
-        if (elements.className === 'tooltip') {
-            return elements;
-        }
-    }
-    return false;
-}
+var surnom = document.getElementById('surnom');
+var surnom_valid = document.getElementById('surnom_valid');
 
-// Verifie la saisie du sexe, elle renvoie true si tout est ok
-var check = {}; // On met toutes nos fonctions dans un objet litteral
-check['sex'] = function() {
+var ville = document.getElementById('ville');
+var ville_valid = document.getElementById('ville_valid');
 
-    var sex = document.getElementsByName('sex'),
-        tooltipStyle = getTooltip(sex[1].parentNode).style;
+var adresse = document.getElementById('adresse');
+var adresse_valid = document.getElementById('adresse_valid');
 
-    if (sex[0].checked || sex[1].checked) {
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-};
+var metier = document.getElementById('metier');
+var metier_valid = document.getElementById('metier_valid');
 
-check['lastName'] = function(id) {
+var nationalite = document.getElementById('nationalite');
+var nationalite_valid = document.getElementById('nationalite_valid');
 
-    var name = document.getElementById(id),
-        tooltipStyle = getTooltip(name).style;
+var genre = document.getElementById('genre');
+var genre_valid = document.getElementById('genre_valid');
 
-    if (name.value.length >= 2) {
-        name.className = 'correct';
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        name.className = 'incorrect';
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
+var photo = document.getElementById('photo');
+var photo_valid = document.getElementById('photo_valid');
 
-};
+// var password = document.getElementById('password');
+// var password_valid = document.getElementById('password_valid');
 
-check['firstName'] = check['lastName']; // La fonction pour le pr�nom est la m�me que celle du nom
+// var password_confirm = document.getElementById('password_confirm');
+// var password_confirm_valid = document.getElementById('password_confirm_valid');
 
-check['age'] = function() {
+var regex_prenom_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
+var regex_nom_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
+var regex_surnom_valid = /^[A-Z][a-zéèàê]+[0-9]/;
+var regex_ville_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
+var regex_adresse_valid = /^[A-Z][a-zéèàê]+[0-9]/;
+var regex_metier_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
+var regex_nationalite_valid =/^[A-Z][a-zéèàê]+[^0-9]/;
 
-    var age = document.getElementById('age'),
-        tooltipStyle = getTooltip(age).style,
-        ageValue = parseInt(age.value);
-
-    if (!isNaN(ageValue) && ageValue >= 5 && ageValue <= 140) {
-        age.className = 'correct';
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        age.className = 'incorrect';
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-
-};
-
-check['login'] = function() {
-
-    var login = document.getElementById('login'),
-        tooltipStyle = getTooltip(login).style;
-
-    if (login.value.length >= 4) {
-        login.className = 'correct';
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        login.className = 'incorrect';
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-
-};
-
-check['pwd1'] = function() {
-
-    var pwd1 = document.getElementById('pwd1'),
-        tooltipStyle = getTooltip(pwd1).style;
-
-    if (pwd1.value.length >= 6) {
-        pwd1.className = 'correct';
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        pwd1.className = 'incorrect';
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-
-};
-
-check['pwd2'] = function() {
-
-    var pwd1 = document.getElementById('pwd1'),
-        pwd2 = document.getElementById('pwd2'),
-        tooltipStyle = getTooltip(pwd2).style;
-
-    if (pwd1.value == pwd2.value && pwd2.value != '') {
-        pwd2.className = 'correct';
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        pwd2.className = 'incorrect';
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-
-};
-
-check['country'] = function() {
-
-    var country = document.getElementById('country'),
-        tooltipStyle = getTooltip(country).style;
-
-    if (country.options[country.selectedIndex].value != 'none') {
-        tooltipStyle.display = 'none';
-        return true;
-    } else {
-        tooltipStyle.display = 'inline-block';
-        return false;
-    }
-
-};
-
-
-// Mise en place des evenements
-
-(function() { // Utilisation d'une IIFE pour eviter les variables globales.
-
-    var myForm = document.getElementById('myForm'),
-        inputs = document.querySelectorAll('input[type=text], input[type=password]'),
-        inputsLength = inputs.length;
-
-    for (var i = 0; i < inputsLength; i++) {
-        inputs[i].addEventListener('keyup', function(e) {
-            check[e.target.id](e.target.id); // "e.target" represente l'input actuellement modifie
-        });
-    }
-
-    myForm.addEventListener('submit', function(e) {
-        var result = true;
-        for (var i in check) {
-            result = check[i](i) && result;
-        }
-        if (result) {
-            alert('Le formulaire est bien rempli.');
-        }
+button_soumission.addEventListener('click',f_valid);
+function f_valid(e)
+{
+    // nom
+    if(nom.validity.valueMissing)
+    {
         e.preventDefault();
-    });
+        nom_valid.innerHTML= '<b>Le nom doit être renseigné<b>';
+        nom_valid.style.color = 'red';
+    }
+    else if(regex_nom_valid.test(nom.value) == false)
+    {
+        nom_valid.innerHTML = '<b>Format inccorecte</b>';
+        nom_valid.style.color = 'orange';
+       
+    }
 
-    myForm.addEventListener('reset', function() {
+    // prénom
+    if(prenom.validity.valueMissing)
+    {
+        e.preventDefault();
+        prenom_valid.innerHTML= '<b>Le prénom doit être renseigné</b>';
+        prenom_valid.style.color = 'red';
+        
+    }
+    else if(regex_prenom_valid.test(prenom.value) == false)
+    {
+        prenom_valid.innerHTML = '<b>Format inccorecte</b>';
+        prenom_valid.style.color = 'orange';
+    }
 
-        for (var i = 0; i < inputsLength; i++) {
-            inputs[i].className = '';
-        }
+    // dateNaissance
+    if(dateNaissance.validity.valueMissing)
+    {
+        e.preventDefault();
+        dateNaissance_valid.innerHTML= '<b>Ce champ est requis</b>';
+        dateNaissance_valid.style.color = 'red';     
+    }
+    
+    // surnom
+    if(surnom.validity.valueMissing)
+    {
+        e.preventDefault();
+        surnom_valid.innerHTML= '<b>Ce champ est requis</b>';
+        surnom_valid.style.color = 'red'; 
+    }
+    else if(regex_surnom_valid.test(surnom.value) == false)
+    {
+        surnom_valid.innerHTML = '<b>Format inccorecte</b>';
+        surnom_valid.style.color = 'orange';
+    }
 
-        deactivateTooltips();
+    // ville
+    if(ville.validity.valueMissing)
+    {
+        e.preventDefault();
+        ville_valid.innerHTML= '<b>Ce champ est requis</b>';
+        ville_valid.style.color = 'red'; 
+    }
+    else if(regex_ville_valid.test(ville.value) == false)
+    {
+        ville_valid.innerHTML = '<b>Format inccorecte</b>';
+        ville_valid.style.color = 'orange';
+    }
 
-    });
+    // adresse
+    if(adresse.validity.valueMissing)
+    {
+        e.preventDefault();
+        adresse_valid.innerHTML= '<b>L\'adresse doit être renseignée</b>';
+        adresse_valid.style.color = 'red'; 
+    }
+    else if(regex_adresse_valid.test(adresse.value) == false)
+    {
+        adresse_valid.innerHTML = '<b>Format inccorecte</b>';
+        adresse_valid.style.color = 'orange';
+    }
 
-})();
+    // metier
+    if(regex_metier_valid.test(metier.value) == false)
+    {
+        metier_valid.innerHTML = '<b>Format inccorecte</b>';
+        metier_valid.style.color = 'orange';
+    }
+
+    // genre
+    if(genre.validity.valueMissing)
+    {
+        e.preventDefault();
+        genre_valid.innerHTML= '<b>Ce champ est requis</b>';
+        genre_valid.style.color = 'red'; 
+    }
+
+    // nationalite
+    if(nationalite.validity.valueMissing)
+    {
+        e.preventDefault();
+        nationalite_valid.innerHTML= '<b>Ce champ est requis</b>';
+        nationalite_valid.style.color = 'red'; 
+    }
+    else if(regex_nationalite_valid.test(nationalite.value) == false)
+    {
+        nationalite_valid.innerHTML = '<b>Format inccorecte</b>';
+        nationalite_valid.style.color = 'orange';
+    }
 
 
-// Maintenant que tout est initialise, on peut desactiver les "tooltips"
+    // photo
+    if(photo.validity.valueMissing)
+    {
+        e.preventDefault();
+        photo_valid.innerHTML= '<b>Ce champ est requis</b>';
+        photo_valid.style.color = 'red'; 
+    }
+    else if(regex_nationalite_valid.test(photo.value) == false)
+    {
+        photo_valid.innerHTML = '<b>Format inccorecte</b>';
+        photo_valid.style.color = 'orange';
+    }
+    else
+    {
 
-deactivateTooltips();
+    }
+}

@@ -14,9 +14,6 @@ class Entraineur
      */
     private $personne;
 
-    /** @column(type="string", length=100, nullable=false) */
-    private $descriptionEntraineur;
-
      /**
      * @ManyToMany(targetEntity="Ecurie", mappedBy="entraineur")
      **/
@@ -53,23 +50,7 @@ class Entraineur
     {
         $this->personne = $personne;
     }
-
-    /**
-     * Get the value of descriptionEntraineur
-     */ 
-    public function getDescriptionEntraineur()
-    {
-        return $this->descriptionEntraineur;
-    }
-
-    /**
-     * Set the value of descriptionEntraineur
-     */ 
-    public function setDescriptionEntraineur($descriptionEntraineur)
-    {
-        $this->descriptionEntraineur = $descriptionEntraineur;
-    }
-
+    
     /**
      * Get the value of ecurie
      */ 
