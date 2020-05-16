@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-04-18 17:03:10
+/* Smarty version 3.1.30, created on 2020-05-05 02:58:27
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\welcome\index.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5e9b16ae9c38b0_64825646',
+  'unifunc' => 'content_5eb0ba335474c6_32223994',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0824a73865b4fe9937c72da8e221cd9479dc901' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\welcome\\index.html',
-      1 => 1587221886,
+      1 => 1588640304,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5e9b16ae9c38b0_64825646 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb0ba335474c6_32223994 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">

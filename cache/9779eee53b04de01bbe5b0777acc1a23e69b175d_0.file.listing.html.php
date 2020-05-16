@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-01 22:40:50
+/* Smarty version 3.1.30, created on 2020-05-16 22:45:40
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\entraineur\listing.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eac8952035a49_44544110',
+  'unifunc' => 'content_5ec050f48f3f36_86354934',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9779eee53b04de01bbe5b0777acc1a23e69b175d' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\entraineur\\listing.html',
-      1 => 1588365349,
+      1 => 1588377271,
       2 => 'file',
     ),
   ),
@@ -22,9 +22,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../../partials/contenu_index/top_barre.html' => 1,
     'file:../../../partials/contenu_index/logo_barre.html' => 1,
     'file:../../../partials/contenu_index/menu.html' => 1,
+    'file:../../../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5eac8952035a49_44544110 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec050f48f3f36_86354934 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
 	<head>
@@ -41,7 +42,7 @@ function content_5eac8952035a49_44544110 (Smarty_Internal_Template $_smarty_tpl)
 			}   
 		</style>
 	</head>
-	<body>
+	<body  class="well">
 		 <!-- <====== Top Barre =====> -->
          <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/top_barre.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -60,7 +61,7 @@ function content_5eac8952035a49_44544110 (Smarty_Internal_Template $_smarty_tpl)
 
 
 
-		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2" style="margin-top:70px; margin-left:150px;">
+		<div class="col-md-8 col-lg-10 col-xs-12 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:150px;">
 			<div class="panel panel-info">
 				<div class="panel-heading">Liste des arbitres</div>
 				<div class="panel-body">
@@ -132,7 +133,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                     </table>
 				</div>
 			</div>
-		</div>	
+        </div>	
+        
+         <!-- <====== Script =====> -->
+		  <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/scripts.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+		  <!-- <====== End Script =====> -->
 	</body>
 </html>
 <?php }

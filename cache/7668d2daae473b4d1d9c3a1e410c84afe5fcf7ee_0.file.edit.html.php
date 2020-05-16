@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-09 19:49:24
-  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\manager\add.html" */
+/* Smarty version 3.1.30, created on 2020-05-09 19:52:50
+  from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\manager\edit.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eb6ed24bfe6d6_72437970',
+  'unifunc' => 'content_5eb6edf2589230_32560038',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '43ceb91dc12c727277d9e55de6b83664b4615f21' => 
+    '7668d2daae473b4d1d9c3a1e410c84afe5fcf7ee' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\manager\\add.html',
-      1 => 1589045099,
+      0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\manager\\edit.html',
+      1 => 1589044867,
       2 => 'file',
     ),
   ),
@@ -22,16 +22,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../../partials/contenu_index/top_barre.html' => 1,
     'file:../../../partials/contenu_index/logo_barre.html' => 1,
     'file:../../../partials/contenu_index/menu.html' => 1,
-    'file:../../../partials/contenu_extract/personne/formulairedAjout.html' => 1,
+    'file:../../../partials/contenu_extract/personne/formulairedEdite.html' => 1,
     'file:../../../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5eb6ed24bfe6d6_72437970 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb6edf2589230_32560038 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Add Manager</title>
+		<title>update manager</title>
 		 <!-- <====== Contenu de <head> =====> -->
             <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/head.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -61,30 +61,35 @@ function content_5eb6ed24bfe6d6_72437970 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
 
-		<div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
+
+		 <div class="col-md-7 col-xs-7 col-md-offset-2 thumnail" style="margin-top:70px; margin-left:350;">
 			<div class="panel panel-info">
-			<div class="panel-heading"><b>Formulaire d'ajout d'un manager</b></div>
+			<div class="panel-heading"><b>Changement des coordonnées du manager <?php echo $_smarty_tpl->tpl_vars['personne']->value->getSurnom();?>
+</b></div>
 				<div class="panel-body">
 					<form class="well" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
-Manager/add" method="POST" enctype="multipart/form-data">
-						<?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_extract/personne/formulairedAjout.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+Manager/update/<?php echo $_smarty_tpl->tpl_vars['personne']->value->getIdPersonne();?>
+" method="POST" enctype="multipart/form-data">
+						<?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_extract/personne/formulairedEdite.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 						<div class="form-group">
-							<input class="btn btn-info" type="submit" name="valider" value="Enregistrer"  id="button_soumission"/>
+							<input class="btn btn-info" type="submit" name="editer" value="Enregistrer"/>
 							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
 						</div>
-					</form>
 					</form>
 				</div>
 			</div>
 		</div>
 
-		  <!-- <====== Script =====> -->
-		  <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/scripts.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+		 <!-- <====== Script =====> -->
+		 <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/scripts.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-		  <!-- <====== End Script =====> -->
+		 <!-- <====== End Script =====> -->
 	</body>
-</html><?php }
+</html>
+
+
+<?php }
 }

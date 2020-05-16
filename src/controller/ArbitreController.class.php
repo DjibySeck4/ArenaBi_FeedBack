@@ -41,7 +41,6 @@ class ArbitreController extends Controller{
                 $arbitre = new Arbitre();
                 $arbitre->setPersonne($arbitre_db->getPersonne($idPersonne));
 
-                
                 $arbitre_db->addArbitre($arbitre);
                 return $this->liste();    
             }
@@ -75,6 +74,9 @@ class ArbitreController extends Controller{
                 // puis on ajoute Arbitre
                 $arbitre_db->addArbitre($arbitre);
                 return $this->liste();    
+        }
+        else{
+            $this->view->load('pages/personne/arbitre/add');
         }     
     }
 

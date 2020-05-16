@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-01 22:33:47
+/* Smarty version 3.1.30, created on 2020-05-09 18:38:24
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\pages\personne\entraineur\add.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eac87abf41d50_37429006',
+  'unifunc' => 'content_5eb6dc80ccae64_82570867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '06067cc652deb301084fd59fc3f65a86fd586cf2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\pages\\personne\\entraineur\\add.html',
-      1 => 1588364885,
+      1 => 1588377228,
       2 => 'file',
     ),
   ),
@@ -23,9 +23,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:../../../partials/contenu_index/logo_barre.html' => 1,
     'file:../../../partials/contenu_index/menu.html' => 1,
     'file:../../../partials/contenu_extract/personne/formulairedAjout.html' => 1,
+    'file:../../../partials/contenu_index/scripts.html' => 1,
   ),
 ),false)) {
-function content_5eac87abf41d50_37429006 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb6dc80ccae64_82570867 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
 	<head>
@@ -42,7 +43,7 @@ function content_5eac87abf41d50_37429006 (Smarty_Internal_Template $_smarty_tpl)
 			}
 		</style>
 	</head>
-	<body>
+	<body  class="well">
 		 <!-- <====== Top Barre =====> -->
          <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/top_barre.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -60,11 +61,11 @@ function content_5eac87abf41d50_37429006 (Smarty_Internal_Template $_smarty_tpl)
 ?>
 
 
-	<div class="col-md-7 col-xs-7 col-md-offset-2" style="margin-top:70px; margin-left:350;">
+	<div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
 		<div class="panel panel-info">
 		<div class="panel-heading"><b>Formulaire d'ajout d'un entraineur</b></div>
 			<div class="panel-body">
-				<form action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+				<form  class="well" action="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Entraineur/add" method="POST" enctype="multipart/form-data">
 					<?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_extract/personne/formulairedAjout.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -78,6 +79,12 @@ Entraineur/add" method="POST" enctype="multipart/form-data">
 			</div>
 		</div>
 	</div>
+
+	 <!-- <====== Script =====> -->
+	 <?php $_smarty_tpl->_subTemplateRender("file:../../../partials/contenu_index/scripts.html", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+
+	 <!-- <====== End Script =====> -->
 </body>
 </html>
 

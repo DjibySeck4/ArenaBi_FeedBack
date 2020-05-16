@@ -1,3 +1,4 @@
+ <!--Codée par Djiby Seck =====> -->
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -27,10 +28,33 @@
 			<div class="panel panel-info">
 			<div class="panel-heading"><b>Formulaire d'ajout d'un arbitre</b></div>
 				<div class="panel-body">
+					<div class="form-group">
+						<div class="btn btn-defaul" id="text_select_ancien_lutteur"><b> Selectionner Un Ancien Lutteur</b></div>
+						<div class="btn btn-defaul" id="frm_add_new_arbitre_text" style="display: none;"><b>Ajouter Un nouveau Arbitre</b></div>
+					</div>  
+
+					<!--Formulaire de rechercher si cet arbitre existe dans la table des lutteurs -->
+					<form action="{$url_base}lutteur/getSurnom" method="post" class="form-inline form-group" id="frm_rechercher_lutteur">
+						<div class="form-group mx-sm-4">
+							<input type="hidden" id="base" value="{$url_base}">
+							<input type="text" class="form-control" id="surnom_lutteur" name="surnom" placeholder="Entrez le surnom de l'arbitre">
+							<input type="submit" class="btn btn-primary" name="q" value="Rechercher">
+						</div>					
+					</form>
+
+					<!-- Formulaire Saisie -->
 					<form class="well" action="{$url_base}Arbitre/add" method="POST" enctype="multipart/form-data">
-						{include file='../../../partials/contenu_extract/personne/formulairedAjout.html'}
+						<div class="info_personne" id="info_personne">
+							{include file='../../../partials/contenu_extract/personne/formulairedAjout.html'}
+						</div>
+						<!-- ce champ s'affiche k si on seach et trouve un lutteur-->
+						<div class="liste_lutteurs form-group" id="liste_lutteurs" style="display: none;">
+							<select name="idPersonne" id="idPersonne" class="form-control custom-select">
+							</select>
+						</div>
+						
 						<div class="form-group">
-							<input class="btn btn-info" type="submit" name="valider" value="Enregistrer"  id="button_soumission"/>
+							<input class="btn btn-primary" type="submit" name="valider" value="Enregistrer"  id="button_soumission"/>
 							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
 						</div>
 					</form>
@@ -42,6 +66,10 @@
 		  <!-- <====== Script =====> -->
 		  {include file='../../../partials/contenu_index/scripts.html'}
 		  <!-- <====== End Script =====> -->
+
+		  <literal>
+			<script src="{base_url()}public/js/personne.js" id="src"></script>
+		</literal>
 	</body>
 </html>
 

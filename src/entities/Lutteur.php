@@ -129,8 +129,6 @@ class Lutteur
         return $this->tournois;
     }
 
-    
-
     /**
      * Get the value of manager
      */ 
@@ -144,6 +142,7 @@ class Lutteur
      */ 
     public function setManager($manager)
     {
+        // var_dump($manager); die;
         $this->manager = $manager;
     }
 

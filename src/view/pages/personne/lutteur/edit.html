@@ -11,7 +11,7 @@
 			}
 		</style>
 	</head>
-	<body  class="well">
+	<body class="well">
 		 <!-- <====== Top Barre =====> -->
          {include file='../../../partials/contenu_index/top_barre.html'}
          <!-- <====== End Top Barre =====> -->
@@ -24,69 +24,34 @@
          {include file='../../../partials/contenu_index/menu.html'}
 
 
-
-		 <div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
+		 <div class="col-md-7 col-xs-7 col-md-offset-2 thumnail" style="margin-top:70px; margin-left:350;">
 			<div class="panel panel-info">
-			<div class="panel-heading"><b>Changement des coordonnées de l'arbitre ...</b></div>
+			<div class="panel-heading"><b>Changement des coordonnées de l'arbitre {$personne->getSurnom()}</b></div>
 				<div class="panel-body">
-					<form  class="well" action="{$url_base}Arbitre/update/{$personne->getIdPersonne()}" method="POST" enctype="multipart/form-data">
+					<form class="well" action="{$url_base}Arbitre/update/{$personne->getIdPersonne()}" method="POST" enctype="multipart/form-data">
+						{include file='../../../partials/contenu_extract/personne/formulairedEdite.html'}
 						<div class="form-row">
-							<div class="form-group col-md-2">
-								<label for="id">Identifiant</label>
-								<input type="text" name="id" class="form-control" value="{$personne->getIdPersonne()}" readonly id="id" autofocus required >
-							</div>
-							<div class="form-group col-md-5">
-								<label for="nom">Nom</label>
-								<input type="text" name="nom" class="form-control" value="{$personne->getNom()}" placeholder="Nom" id="nom" autofocus required>
-							</div>
-							<div class="form-group col-md-5">
-								<label for="prenom">Prénom</label>
-								<input type="prenom" name="prenom" class="form-control" value="{$personne->getPrenom()}" placeholder="Prénom" id="prenom" required>
-							</div>
-						</div>
-						<div class="form-row">
-							<div class="col-4 form-group">
-								<label for="dateNaissance">Date de naissance</label>
-								<input type="date" name="dateNaissance" class="form-control" value="{$personne->getDateNaissance()}" placeholder="Date de naissance" id="dateNaissance" required>
+							<div class="col">
+								<label for="droitier_gauchier">Droitier ou Gauchier</label>
+								<input type="text" name="droitier_gauchier" class="form-control" id="droitier_gauchier" required>
+								<span id="surnom_valid"></span>
 							</div>
 							<div class="col">
-								<label for="surnom">Surnom</label>
-								<input type="text" name="surnom" class="form-control" value="{$personne->getSurnom()}" placeholder="Surnom" id="surnom">
-							</div>
-							<div class="col">
-								<label for="ville">Ville</label>
-								<input type="text" name="ville" class="form-control" value="{$personne->getVille()}" placeholder="Ville" id="ville" required>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="adresse">Adresse</label>
-							<input type="text" name="adresse" class="form-control" id="addresse" value="{$personne->getAdresse()}" placeholder="Vous-habitez ou ?" required>
-						</div>
-						<div class="form-row">
-							<div class="form-group col-md-4">
-								<label for="photo">Photo</label>
-								<input type="file" name="photo" class="form-control" id="photo" value="{$personne->getPhotoPersonne()}" required>
-							</div>
-							<div class="form-group col-md-3">
-								<label for="metier">Metier</label>
-								<input type="text" name="metier" class="form-control" id="metier" value="{$personne->getMetierPersonne()}">
-							</div>
-							<div class="form-group col-md-3">
-								<label for="nationalite">Nationalite</label>
-								<input type="text" name="nationalite" class="form-control" value="{$personne->getNationalite()}" placeholder="nationalite" id="nationalite">
-							</div>
-							<div class="form-group col-md-2">
-								<label for="genre">Genre</label>
-								<select id="genre" name="genre" class="form-control">
-									<option >Votre genre </option>
-									<option selected value="M">Masculin</option>
-									<option value="F">Feminin</option>
+								<label for="categorie">Catégorie</label>
+								<select id="categorie" name="categorie" class="form-control custum-select" required>
+									<option >Séléctionner une categorie </option>
+									<option selected value="vip">Vip</option>
+									<option value="autres">Autres</option>
 								</select>
-							</div>	
-						</div>
-							<div class="form-group">
-								<label for="description">Description</label>
-								<textarea name="description" id="description" class="form-control"  rows="2">{$personne->getDescription()}</textarea>
+								<span id="genre_valid"></span>
+							</div>
+							<div class="col">
+								<label for="manager">Manager</label>
+								<select id="manager" name="manager" class="form-control custum-select" required>
+									<option >Séléctionner un manager </option>
+									
+								</select>
+								<span id="genre_valid"></span>
 							</div>
 						<div class="form-group">
 							<input class="btn btn-info" type="submit" name="editer" value="Enregistrer"/>

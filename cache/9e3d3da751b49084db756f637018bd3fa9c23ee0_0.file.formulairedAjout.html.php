@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-02 01:13:38
+/* Smarty version 3.1.30, created on 2020-05-09 23:14:08
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_extract\personne\formulairedAjout.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eacad220737f5_48118447',
+  'unifunc' => 'content_5eb71d20cf9e35_88634191',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9e3d3da751b49084db756f637018bd3fa9c23ee0' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_extract\\personne\\formulairedAjout.html',
-      1 => 1588374817,
+      1 => 1589056196,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eacad220737f5_48118447 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb71d20cf9e35_88634191 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="form-row">
     <div class="form-group col-md-6">
@@ -28,7 +28,7 @@ function content_5eacad220737f5_48118447 (Smarty_Internal_Template $_smarty_tpl)
         <input type="text" name="nom" class="form-control" placeholder="Nom" id="nom" autofocus required>
         <span id="nom_valid"></span>
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-6"> 
         <label for="prenom">Prénom</label>
         <input type="prenom" name="prenom" class="form-control" placeholder="Prénom" id="prenom" required>
         <span id="prenom_valid"></span>
@@ -74,7 +74,7 @@ function content_5eacad220737f5_48118447 (Smarty_Internal_Template $_smarty_tpl)
     </div>
     <div class="form-group col-md-2">
         <label for="genre">Genre</label>
-        <select id="genre" name="genre" class="form-control" required>
+        <select id="genre" name="genre" class="form-control custum-select" required>
             <option >Votre genre </option>
             <option selected value="M">Masculin</option>
             <option value="F">Feminin</option>

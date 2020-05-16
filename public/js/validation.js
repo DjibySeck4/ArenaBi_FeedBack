@@ -76,9 +76,9 @@ var photo_valid = document.getElementById('photo_valid');
 
 var regex_prenom_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
 var regex_nom_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
-var regex_surnom_valid = /^[A-Z][a-zéèàê]+[0-9]/;
+var regex_surnom_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
 var regex_ville_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
-var regex_adresse_valid = /^[A-Z][a-zéèàê]+[0-9]/;
+var regex_adresse_valid = /^[A-Z][a-zéèàê]+/;
 var regex_metier_valid = /^[A-Z][a-zéèàê]+[^0-9]/;
 var regex_nationalite_valid =/^[A-Z][a-zéèàê]+[^0-9]/;
 
@@ -94,6 +94,7 @@ function f_valid(e)
     }
     else if(regex_nom_valid.test(nom.value) == false)
     {
+        e.preventDefault();
         nom_valid.innerHTML = '<b>Format inccorecte</b>';
         nom_valid.style.color = 'orange';
        
@@ -109,6 +110,7 @@ function f_valid(e)
     }
     else if(regex_prenom_valid.test(prenom.value) == false)
     {
+        e.preventDefault();
         prenom_valid.innerHTML = '<b>Format inccorecte</b>';
         prenom_valid.style.color = 'orange';
     }
@@ -130,6 +132,7 @@ function f_valid(e)
     }
     else if(regex_surnom_valid.test(surnom.value) == false)
     {
+        e.preventDefault();
         surnom_valid.innerHTML = '<b>Format inccorecte</b>';
         surnom_valid.style.color = 'orange';
     }
@@ -143,6 +146,7 @@ function f_valid(e)
     }
     else if(regex_ville_valid.test(ville.value) == false)
     {
+        e.preventDefault();
         ville_valid.innerHTML = '<b>Format inccorecte</b>';
         ville_valid.style.color = 'orange';
     }
@@ -156,6 +160,7 @@ function f_valid(e)
     }
     else if(regex_adresse_valid.test(adresse.value) == false)
     {
+        e.preventDefault();
         adresse_valid.innerHTML = '<b>Format inccorecte</b>';
         adresse_valid.style.color = 'orange';
     }
@@ -163,6 +168,7 @@ function f_valid(e)
     // metier
     if(regex_metier_valid.test(metier.value) == false)
     {
+        e.preventDefault();
         metier_valid.innerHTML = '<b>Format inccorecte</b>';
         metier_valid.style.color = 'orange';
     }
@@ -184,6 +190,7 @@ function f_valid(e)
     }
     else if(regex_nationalite_valid.test(nationalite.value) == false)
     {
+        e.preventDefault();
         nationalite_valid.innerHTML = '<b>Format inccorecte</b>';
         nationalite_valid.style.color = 'orange';
     }
@@ -196,11 +203,7 @@ function f_valid(e)
         photo_valid.innerHTML= '<b>Ce champ est requis</b>';
         photo_valid.style.color = 'red'; 
     }
-    else if(regex_nationalite_valid.test(photo.value) == false)
-    {
-        photo_valid.innerHTML = '<b>Format inccorecte</b>';
-        photo_valid.style.color = 'orange';
-    }
+   
     else
     {
 

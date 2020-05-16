@@ -20,100 +20,111 @@ class PromoteurController extends Controller{
         $this->view->load('pages/personne/promoteur/listing',$data);
     }
 
-    public function add()
-    {
-        
-        $promoteur_db = new PromoteurRepository;
-
-        $promoteur = new Promoteur();
-        $promoteur->setDescriptionPromoteur("Je suis un message test");
-        $promoteur->setPersonne($promoteur_db->getPersonne(5));
-
-        $promoteur_db->addPromoteur($promoteur);
+    public function listePersonne(){
+        $personne_db = new PersonneRepository;
+        $personnes = $personne_db->listePersonnes();
+        return $personnes;
     }
 
-    public function edit($id)
+    public function add()
     {
-        $promoteur_db = new PromoteurRepository();
-        $promoteur = $promoteur_db->getPromoteur($id);
-       
-        $personne = $promoteur->getPersonne();
-        $personne->setNom('Seck');
-        $personne->setPrenom('gnohor');
-        $personne->setSurnom('Samane');
-        $personne->setDateNaissance('05/02/1988');
-        $personne->setAdresse('Yof');
-        $personne->setVille('Dakar');
-        $personne->setPhotoPersonne('seck.png');
-        $personne->setMetierPersonne('Developpeur');
-        $personne->setSexe('Masculin');
-        $personne->setNationalite('Senegalais');
-        $promoteur->setNomStructure('Cayor');
-        $promoteur->setDescriptionPromoteur('Samanemvc Le framework des Africains');
+        $personnes = $this->listePersonne();
+        $promoteur_db = new PromoteurRepository;
+        if(isset($_POST['valider']))
+        {
+            extract($_POST);
 
-        $personne_db = new PersonneRepository();
-        $a = $personne_db->updatePersonne($personne);
-        $promoteur->setPersonne($promoteur_db->getPersonne($a));
+            $personne = $promoteur_db->getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $genre, $nationalite);
+            if($personne != null)
+            {
+                $idPersonne = $personne[0]->getIdPersonne();
+                $promoteur = new Promoteur();
+                $promoteur->setPersonne($promoteur_db->getPersonne($idPersonne));
+                  $promoteur->setNomStructure($nomStructure);
 
+                $promoteur_db->addPromoteur($promoteur);
+                return $this->liste();    
+            }
+                // var_dump($personne->getSurnom()); die;
+                $photo_name = $_FILES['photo']['name'];
+                $file_tmp_name = $_FILES['photo']['tmp_name'];
+                move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
+        
+                $personne = new Personne();
+                $personne->setNom(addslashes($nom));
+                $personne->setPrenom(addslashes($prenom));
+                $personne->setSurnom(addslashes($surnom));
+                $personne->setDateNaissance(addslashes($dateNaissance));
+                $personne->setAdresse(addslashes($adresse));
+                $personne->setVille(addslashes($ville));
+                $personne->setPhotoPersonne(addslashes($photo_name));
+                $personne->setMetierPersonne(addslashes($metier));
+                $personne->setSexe(addslashes($genre));
+                $personne->setNationalite(addslashes($nationalite));
+                $personne->setDescription($description);
+                
+                // on ajoute personne 
+                $personne_db = new PersonneRepository;
+                $id = $personne_db->addPersonne($personne);
+                
+                // on charge son id dans la table Promoteur
+                $promoteur_db = new PromoteurRepository;
+                $promoteur = new Promoteur();
+                $promoteur->setPersonne($promoteur_db->getPersonne($id));
+                $promoteur->setNomStructure($nomStructure);
 
-        $a = $promoteur_db->updatePromoteur($promoteur);
-        var_dump($promoteur_db->getPromoteur($a)->getPersonne()->getPrenom());
-        die;
+                // puis on ajoute Promoteur
+                $promoteur_db->addPromoteur($promoteur);
+                return $this->liste();    
+        }
+        else{
+            $this->view->load('pages/personne/promoteur/add');
+        }     
+    }
+
+    public function update($idPersonne)
+    {
+        extract($_POST);
+        
+        $promoteur_db = new PromoteurRepository;
+        $personne = $promoteur_db->getPersonne($idPersonne);
+    
+        $photo_name = $_FILES['photo']['name'];
+        $file_tmp_name = $_FILES['photo']['tmp_name'];
+        move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
+
+        $personne = new Personne();
+        $personne->setIdPersonne(addslashes($id));
+        $personne->setNom(addslashes($nom));
+        $personne->setPrenom(addslashes($prenom));
+        $personne->setSurnom(addslashes($surnom));
+        $personne->setDateNaissance(addslashes($dateNaissance));
+        $personne->setAdresse(addslashes($adresse));
+        $personne->setVille(addslashes($ville));
+        $personne->setPhotoPersonne(addslashes($photo_name));
+        $personne->setMetierPersonne(addslashes($metier));
+        $personne->setSexe(addslashes($genre));
+        $personne->setNationalite(addslashes($nationalite));
+        $personne->setDescription($description);
+
+        $personne_db = new PersonneRepository;
+        $id = $personne_db->updatePersonne($personne);
+    
+
+         // on charge son id dans la table Promoteur
+         $promoteur_db = new PromoteurRepository;
+         $promoteur = new Promoteur();
+         $promoteur->setNomStructure($nomStructure);
+ 
+         $promoteur_db->updatePromoteur($promoteur);
+         return $this->liste();      
+    }
+
+    
+    public function edit($id){
+        $personne_db = new PersonneRepository;
+        $data['personne'] = $personne_db->getPersonne($id);
+        return $this->view->load("pages/personne/promoteur/edit", $data);
     }
     
 }
-
-
-
-
-// public function add()
-// {
-//     $lutteurDb = new LutteurRepository;
-//     $combatDb = new CombatRepository;
-//     $promoteurDb = new PromoteurRepository;
-//     $stadeDb = new StadeLieuCombatRepository;
-
-//     $combat = new Combat();
-   
-//     $combat->setDateCombat('2020-05-08');
-//     $combat->setIsGrandCombat(0);
-//     $combat->setDescription('Lorem ipsum dolor sit ame');
-//     $combat->setPromoteur($promoteurDb->getPromoteur(1));
-//     $combat->setLieuStade($stadeDb->getStadeLieuCombat(2));
-  
-//     $lutteur1 = $lutteurDb->getLutteur(4);
-//     $lutteur2 = $lutteurDb->getLutteur(5);
-//     // dans la table combat on doit avoir les lutteurs
-//     $combat->addLutteur($lutteur1);
-//     $combat->addLutteur($lutteur2); 
-
-//     $lutteur1->addCombat($combat);
-//     $lutteur2->addCombat($combat);
-//     $a = $combatDb->addCombat($combat);
-//     var_dump($a);
-//     die;
-//     foreach ($combat->getLutteurs() as $lutteur) {
-//         echo $lutteur->getPersonne()->getNom();
-//         echo "<br>";
-//     }
-//    //var_dump($combat->getLutteurs());
-//    die;
-//     $a = $combatDb->addCombat($combat);
-//     foreach ($combat->getLutteurs() as $lutteur) {
-//         echo $lutteur->getIdLutteur();
-//         echo "<br>";
-//     }
-
-//     $a=1;
-//     die;
-//     $combat = $combatDb->getCombat($a);
-//     foreach ($combat->getLutteurs() as $lutteur) {
-//         echo $lutteur->getIdLutteur();
-//         echo "<br>";
-//     }
-
-//     die;
-
-//     var_dump(1);
-//     die;
-// }

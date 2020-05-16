@@ -57,7 +57,7 @@ class LutteurRepository extends Model
             $getLutteur->getPersonne()->setMetierPersonne($lutteur->getPersonne()->getMetierPersonne());
             $getLutteur->getPersonne()->setSexe($lutteur->getPersonne()->getSexe());
             $getLutteur->getPersonne()->setNationalite($lutteur->getPersonne()->getNationalite());
-            $getLutteur->setDescriptionLutteur($lutteur->getDescriptionLutteur());
+            // $getLutteur->setDescriptionLutteur($lutteur->getDescriptionLutteur());
             $getLutteur->setManager($lutteur->getManager());
             $this->db->flush();
             return $lutteur->getIdLutteur();
@@ -100,5 +100,17 @@ class LutteurRepository extends Model
     public function getManager($id)
     {
         return $this->db->getRepository('Manager')->find(array('idManager' => $id));
+    }
+
+    public function getUnePersonne($nom, $prenom, $surnom, $dateNaissance, $adresse, $ville, $sexe, $nationalite)
+    {
+        return $this->db->getRepository('Personne')->findBy(array('nom' => $nom, 'prenom' => $prenom, 'surnom' => $surnom,
+        'dateNaissance' => $dateNaissance, 'adresse' => $adresse, 'ville' => $ville, 'sexe' => $sexe, 'nationalite' => $nationalite));
+    }
+
+    public function getLutteurBySurnom(string $surnom)
+    {
+        return $this->db->createQuery("SELECT l FROM Lutteur l JOIN l.personne p WHERE p.surnom = '" . $surnom . "'")
+            ->getResult();
     }
 }
