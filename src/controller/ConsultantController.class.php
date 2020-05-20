@@ -40,8 +40,6 @@ class ConsultantController extends Controller{
                 $idPersonne = $personne[0]->getIdPersonne();
                 $consultant = new Consultant();
                 $consultant->setPersonne($consultant_db->getPersonne($idPersonne));
-
-                
                 $consultant_db->addConsultant($consultant);
                 return $this->liste();    
             }
@@ -63,16 +61,11 @@ class ConsultantController extends Controller{
                 $personne->setNationalite(addslashes($nationalite));
                 $personne->setDescription($description);
                 
-                // on ajoute personne 
                 $personne_db = new PersonneRepository;
                 $id = $personne_db->addPersonne($personne);
-                
-                // on charge son id dans la table Arbitre
                 $consultant_db = new ConsultantRepository;
                 $consultant = new Consultant();
                 $consultant->setPersonne($consultant_db->getPersonne($id));
-        
-                // puis on ajoute Arbitre
                 $consultant_db->addConsultant($consultant);
                 return $this->liste();    
         }     

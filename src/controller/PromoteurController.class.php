@@ -45,7 +45,6 @@ class PromoteurController extends Controller{
                 $promoteur_db->addPromoteur($promoteur);
                 return $this->liste();    
             }
-                // var_dump($personne->getSurnom()); die;
                 $photo_name = $_FILES['photo']['name'];
                 $file_tmp_name = $_FILES['photo']['tmp_name'];
                 move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
@@ -63,17 +62,14 @@ class PromoteurController extends Controller{
                 $personne->setNationalite(addslashes($nationalite));
                 $personne->setDescription($description);
                 
-                // on ajoute personne 
                 $personne_db = new PersonneRepository;
                 $id = $personne_db->addPersonne($personne);
                 
-                // on charge son id dans la table Promoteur
                 $promoteur_db = new PromoteurRepository;
                 $promoteur = new Promoteur();
                 $promoteur->setPersonne($promoteur_db->getPersonne($id));
                 $promoteur->setNomStructure($nomStructure);
 
-                // puis on ajoute Promoteur
                 $promoteur_db->addPromoteur($promoteur);
                 return $this->liste();    
         }
@@ -110,14 +106,12 @@ class PromoteurController extends Controller{
         $personne_db = new PersonneRepository;
         $id = $personne_db->updatePersonne($personne);
     
-
-         // on charge son id dans la table Promoteur
-         $promoteur_db = new PromoteurRepository;
-         $promoteur = new Promoteur();
-         $promoteur->setNomStructure($nomStructure);
+        $promoteur_db = new PromoteurRepository;
+        $promoteur = new Promoteur();
+        $promoteur->setNomStructure($nomStructure);
  
-         $promoteur_db->updatePromoteur($promoteur);
-         return $this->liste();      
+        $promoteur_db->updatePromoteur($promoteur);
+        return $this->liste();      
     }
 
     

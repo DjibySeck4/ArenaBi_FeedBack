@@ -11,7 +11,7 @@ class StadeController extends Controller{
     }
 
     public function ajouter(){
-        return $this->view->load("pages/llutte/stade/add");
+        return $this->view->load("pages/lutte/stade/add");
     }
 
     public function liste(){

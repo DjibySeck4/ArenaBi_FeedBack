@@ -4,7 +4,6 @@ namespace src\model;
 
 use libs\system\Model;
 use Arbitre;
-use Combat;
 
 class ArbitreRepository extends Model
 {

@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @Entity @Table(name="resultatCombat")
  **/
 class ResultatCombat
-{
+{ 
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $idResultat;
     /**

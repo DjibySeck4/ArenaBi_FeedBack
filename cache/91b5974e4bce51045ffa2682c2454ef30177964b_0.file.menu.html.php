@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2020-05-02 01:45:05
+/* Smarty version 3.1.30, created on 2020-05-18 20:24:33
   from "C:\xampp\htdocs\PHP\SamaneMVC\AreneBiFeelBack\src\view\partials\contenu_index\menu.html" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5eacb4812e7fa9_45773192',
+  'unifunc' => 'content_5ec2d2e1478dd6_69110606',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '91b5974e4bce51045ffa2682c2454ef30177964b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\PHP\\SamaneMVC\\AreneBiFeelBack\\src\\view\\partials\\contenu_index\\menu.html',
-      1 => 1588376699,
+      1 => 1589826164,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eacb4812e7fa9_45773192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec2d2e1478dd6_69110606 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class="container main-menu" id="main-menu">
     <div class="row align-items-center justify-content-between">
@@ -64,6 +64,14 @@ Entraineur/ajouter">Entraîneur</a></li>
 Promoteur/ajouter">Promoteur</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Consultant/ajouter">Consultant</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Chute/ajouter">Type de chute</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Combat/ajouter">Combat</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Photo/ajouter">Photo</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Video/ajouter">Video</a></li>
                 </ul>
             </li>
 
@@ -81,6 +89,14 @@ Entraineur/liste">Entraîneur</a></li>
 Promoteur/liste">Promoteur</a></li>
                     <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
 Consultant/liste">Consultant</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Chute/liste">Type de chute</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Combat/liste">Combat</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Photo/liste">Photo</a></li>
+                    <li><a href="<?php echo $_smarty_tpl->tpl_vars['url_base']->value;?>
+Video/liste">Video</a></li>
                 </ul>
             </li>
            

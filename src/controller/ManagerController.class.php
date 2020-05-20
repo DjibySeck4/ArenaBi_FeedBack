@@ -1,6 +1,5 @@
 <?php
 
-use Doctrine\ORM\Mapping\ManyToMany;
 use libs\system\Controller;
 use src\model\ManagerRepository;
 use src\model\PersonneRepository;
@@ -45,7 +44,6 @@ class ManagerController extends Controller{
                 $manager_db->addManager($manager);
                 return $this->liste();    
             }
-                // var_dump($personne->getSurnom()); die;
                 $photo_name = $_FILES['photo']['name'];
                 $file_tmp_name = $_FILES['photo']['tmp_name'];
                 move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
@@ -62,17 +60,12 @@ class ManagerController extends Controller{
                 $personne->setSexe(addslashes($genre));
                 $personne->setNationalite(addslashes($nationalite));
                 $personne->setDescription($description);
-                
-                // on ajoute personne 
                 $personne_db = new PersonneRepository;
                 $id = $personne_db->addPersonne($personne);
                 
-                // on charge son id dans la table Manager
                 $manager_db = new ManagerRepository;
                 $manager = new Manager();
                 $manager->setPersonne($manager_db->getPersonne($id));
-        
-                // puis on ajoute Manager
                 $manager_db->addManager($manager);
                 return $this->liste();    
         }

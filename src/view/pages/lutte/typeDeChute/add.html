@@ -1,0 +1,64 @@
+ <!--Codée par Djiby Seck =====> -->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Add type de chute</title>
+		 <!-- <====== Contenu de <head> =====> -->
+            {include file='../../../partials/contenu_index/head.html'}
+            <!-- <====== End Contenu de <head> =====> -->
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body class="well">
+		 <!-- <====== Top Barre =====> -->
+         {include file='../../../partials/contenu_index/top_barre.html'}
+         <!-- <====== End Top Barre =====> -->
+
+         <!-- <====== Logo Barre =====> -->
+         {include file='../../../partials/contenu_index/logo_barre.html'}
+         <!-- <====== End Logo Barre =====> -->
+
+         <!-- <====== Menu principal =====> -->
+         {include file='../../../partials/contenu_index/menu.html'}
+
+		<div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
+			<div class="panel panel-info">
+			<div class="panel-heading"><b>Ajouter un nouveau type de chute</b></div>
+				<div class="panel-body">
+					<form class="well" action="{$url_base}Chute/add" method="POST" enctype="multipart/form-data">
+						<div class="form-group">
+                            <label for="designation">Désignation chute</label>
+                            <input type="text" name="designation" class="form-control" placeholder="Nom de la chute" id="designation" autofocus required>
+                            <span id="typeDechute_valid"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="particularite_chute">Popularité de la chute</label>
+                            <input type="text" name="particularite" class="form-control" placeholder="C'est quoi la particularité de cette chute ? " id="particularite_chute" required>
+                            <span id="particularite_chute_valid"></span>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="photo">Exemple Photo/>vidéo</label>
+                            <input type="file" name="photo" class="form-control" id="photo" required>
+                            <span id="photo_valid"></span>
+                        </div>
+						<div class="form-group">
+							<input class="btn btn-primary" type="submit" name="valider" value="Enregistrer"  id="button_soumission"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+			</div>
+		</div>
+
+		  <!-- <====== Script =====> -->
+		  {include file='../../../partials/contenu_index/scripts.html'}
+		  <!-- <====== End Script =====> -->
+
+		  <literal>
+			<script src="{base_url()}public/js/personne.js" id="src"></script>
+		</literal>
+	</body>
+</html>
+

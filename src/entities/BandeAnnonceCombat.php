@@ -14,11 +14,11 @@ class BandeAnnonceCombat
      * @JoinColumn(name="idCombat", referencedColumnName="idCombat")
      */
     private $combat;
-    /**
-     * @OneToOne(targetEntity="Video", inversedBy="bandeAnnonceCombat")
-     * @JoinColumn(name="idVideo", referencedColumnName="idVideo")
-     */
-    private $idVideo;
+    // /**
+    //  * @OneToOne(targetEntity="Video", inversedBy="bandeAnnonceCombat")
+    //  * @JoinColumn(name="idVideo", referencedColumnName="idVideo")
+    //  */
+    // private $idVideo;
     /** @column(type="string", nullable=false) */
     private $description;
 

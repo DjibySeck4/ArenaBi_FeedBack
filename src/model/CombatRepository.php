@@ -2,7 +2,7 @@
 
 namespace src\model;
 
-use libs\system\Model;
+use libs\system\Model; 
 use Combat;
 
 class CombatRepository extends Model
@@ -36,7 +36,7 @@ class CombatRepository extends Model
 
         return $combat->getIdCombat();
     }
-
+ 
     /**
      * Modification d'une Combat
      *
@@ -105,5 +105,15 @@ class CombatRepository extends Model
     public function getTournoiLutte($id)
     {
         return $this->db->getRepository('TournoiLutte')->find(array('idTournoiLutte' => $id));
+    }
+
+    public function getLutteur($id)
+    {
+        return $this->db->getRepository('Lutteur')->find(array('idLutteur' => $id));
+    }
+
+    public function getArbitre($id)
+    {
+        return $this->db->getRepository('Arbitre')->find(array('idArbitre' => $id));
     }
 }

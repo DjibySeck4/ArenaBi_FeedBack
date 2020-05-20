@@ -3,7 +3,11 @@
 use libs\system\Controller;
 use src\model\ArbitreRepository;
 use src\model\CombatRepository;
-use src\model\PersonneRepository;
+use src\model\ConsultantRepository;
+use src\model\LutteurRepository;
+use src\model\PromoteurRepository;
+use src\model\StadeLieuCombatRepository;
+use src\model\TournoiLutteRepository;
 
 class CombatController extends Controller{
 
@@ -12,40 +16,74 @@ class CombatController extends Controller{
     }
 
     public function ajouter(){
-        return $this->view->load("pages/lutte/combat/add");
+
+        $lutteur_db = new LutteurRepository;
+        $data['liste_lutteurs'] = $lutteur_db->listeLutteurs();
+
+        $arbitre_db = new ArbitreRepository;
+        $data['liste_arbitres'] = $arbitre_db->listeArbitres();
+
+        $stade_db = new StadeLieuCombatRepository;
+        $data['liste_stades'] = $stade_db->listeStadeLieuCombats();
+
+        $promoteur_db = new PromoteurRepository;
+        $data['liste_promoteurs'] = $promoteur_db->listePromoteurs();
+
+        $tournoi_db = new TournoiLutteRepository;
+        $data['liste_tournois'] = $tournoi_db->listeTournoiLuttes();
+
+        $consultant_db = new ConsultantRepository;
+        $data['liste_consultants'] = $consultant_db->listeConsultants();
+
+        return $this->view->load("pages/lutte/combat/add", $data);
     }
 
     public function liste(){
-        $arbitreDb = new ArbitreRepository;
-        $data['liste_combats'] = $arbitreDb->listeArbitres();
-        $this->view->load('pages/autres/combat/listing',$data);
+        $combatDb = new CombatRepository;
+        $data['liste_combats'] = $combatDb->listeCombats();
+        $this->view->load('pages/lutte/combat/listing',$data);
     }
 
     
     public function add()
     {
-
+        extract($_POST);
         $combatDb = new CombatRepository;
 
-        $combat = new Combat();
-        $combat->setIsGrandCombat(0);
-        $combat->setDescription('combat ju jour');
-        $combat->setDateCombat('2020-05-08');
-        $combat->setNombreSpectateurs('700');
-        $combat->setPromoteur($combatDb->getPromoteur(4));
-        $combat->setLieuStade($combatDb->getLieuStade(2));
-        $combat->setJourneeCombat($combatDb->getJourneeCombat(1));
-        $combat->setTournoiLutte($combatDb->getTournoiLutte(1));
+        $combat = new Combat(); 
+        $combat->setIsGrandCombat($isGrandCombat);
+        $combat->setDescription($description);
+        $combat->setDateCombat($date);
+        $combat->setPromoteur($combatDb->getPromoteur($promoteur));
+        $combat->setLieuStade($combatDb->getLieuStade($stade));
+        $combat->setJourneeCombat($combatDb->getJourneeCombat($jour));
+        $combat->setTournoiLutte($combatDb->getTournoiLutte($tournoi));
     
-        $a = $combatDb->addCombat($combat);
-        // $lutteur1 = $lutteurDb->getLutteur(4);
-        // $lutteur2 = $lutteurDb->getLutteur(5);
-        // // dans la table combat on doit avoir les lutteurs
-        // $combat->addLutteur($lutteur1);
-        // $combat->addLutteur($lutteur2); 
+        $combat->addLutteur($combatDb->getLutteur($lutteur1));
+        $combat->addLutteur($combatDb->getLutteur($lutteur2)); 
 
+        $combat->addArbitre($combatDb->getArbitre($arbitre1));
+        $combat->addArbitre($combatDb->getArbitre($arbitre2));
+        $combat->addArbitre($combatDb->getArbitre($arbitre3));
+       
+
+        foreach($combat->getArbitres() as $arbitre)
+        {
+            echo $arbitre->getPersonne()->getNom();
+            echo "</br>";
+        }
+        die;
         // $lutteur1->addCombat($combat);
         // $lutteur2->addCombat($combat);
+        var_dump($arbitre3); die;
+       
+        // $arbitre1->addCombat($combat);
+        // $arbitre2->addCombat($combat);
+        // $arbitre3->addCombat($combat);
+
+       
+        $combatDb->addCombat($combat);
+        return header("location:$url_base/Combat/liste");
         // var_dump($a);
         // die;
     //     foreach ($combat->getLutteurs() as $lutteur) {
@@ -74,31 +112,26 @@ class CombatController extends Controller{
     //     die;
     }
 
-    public function edit($id)
+    public function update($id)
     {
-        $arbitreDb = new ArbitreRepository;
-        $arbitre = $arbitreDb->getArbitre($id);
-       
-        $personne = $arbitre->getPersonne();
-        $personne->setNom('Seck');
-        $personne->setPrenom('Salif');
-        $personne->setSurnom('DSS');
-        $personne->setDateNaissance('01/11/2011');
-        $personne->setAdresse('grand mbour');
-        $personne->setVille('mbour');
-        $personne->setPhotoPersonne('seck.png');
-        $personne->setMetierPersonne('bilaal');
-        $personne->setSexe('M');
-        $personne->setNationalite('Senegalais');
-        $arbitre->setDescriptionArbitre('je suis une desc test');
-
-        $personne_db = new PersonneRepository();
-        $a = $personne_db->updatePersonne($personne);
-        $arbitre->setPersonne($arbitreDb->getPersonne($a));
-
-        $a = $arbitreDb->updateArbitre($arbitre);
-        var_dump($arbitreDb->getArbitre($a)->getPersonne()->getPrenom());
-        die;
+        extract($_POST);
+        $combatDb = new CombatRepository;
+        $combat = new Combat(); 
+        $combat->setIsGrandCombat($isGrandCombat);
+        $combat->setDescription($description);
+        $combat->setDateCombat($date);
+        $combat->setPromoteur($combatDb->getPromoteur($promoteur));
+        $combat->setLieuStade($combatDb->getLieuStade($stade));
+        $combat->setJourneeCombat($combatDb->getJourneeCombat($jour));
+        $combat->setTournoiLutte($combatDb->getTournoiLutte($tournoi));
+    
+        $lutteur1 = $lutteurDb->getLutteur($lutteur1);
+        $lutteur2 = $lutteurDb->getLutteur($lutteur2);
+        $combat->addLutteur($lutteur1);
+        $combat->addLutteur($lutteur2); 
+        
+        $combatDb->updateCombat($combat);
+        return header("location:$url_base/Combat/liste");
     }
     
 }

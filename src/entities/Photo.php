@@ -4,7 +4,7 @@ use Doctrine\ORM\Annotation as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * @Entity @Table(name="photo")
+ * @Entity @Table(name="photo") 
  **/
 class Photo
 {
@@ -12,7 +12,7 @@ class Photo
     private $idPhoto;
     /**
      * @ManyToOne(targetEntity="ResultatCombat", inversedBy="photo")
-     * @JoinColumn(name="idResultat", referencedColumnName="idResultat")
+     * @JoinColumn(name="idResultat", referencedColumnName="idResultat") 
      */
     private $idResultat;
     /** @Column(type="string", length=30, nullable=false) **/

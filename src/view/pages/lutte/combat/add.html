@@ -1,0 +1,205 @@
+ <!--Codée par Djiby Seck =====> -->
+ <html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Add Combat</title>
+		 <!-- <====== Contenu de <head> =====> -->
+            {include file='../../../partials/contenu_index/head.html'}
+            <!-- <====== End Contenu de <head> =====> -->
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body class="well">
+		 <!-- <====== Top Barre =====> -->
+         {include file='../../../partials/contenu_index/top_barre.html'}
+         <!-- <====== End Top Barre =====> -->
+
+         <!-- <====== Logo Barre =====> -->
+         {include file='../../../partials/contenu_index/logo_barre.html'}
+         <!-- <====== End Logo Barre =====> -->
+
+         <!-- <====== Menu principal =====> -->
+         {include file='../../../partials/contenu_index/menu.html'}
+
+		<div class="col-md-7 col-xs-7 col-md-offset-2 thumbnail" style="margin-top:70px; margin-left:350;">
+			<div class="panel panel-info">
+			<div class="panel-heading"><b>Ajouter un combat</b></div>
+				<div class="panel-body">
+
+					<!-- Formulaire Saisie -->
+					<form class="well" action="{$url_base}Combat/add" method="POST" enctype="multipart/form-data">
+						<!-- Les 2 lutteurs -->
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label for="lutteur1">Lutteur1</label>
+								<select id="lutteur1" name="lutteur1" class="form-control custum-select" required>
+									<option >Séléctionnez un lutteur </option>
+									{foreach from=$liste_lutteurs item=$lutteur}
+										<option value="{$lutteur->getIdLutteur()}">{$lutteur->getPersonne()->getPrenom()} {$lutteur->getPersonne()->getNom()}</option> 
+									{/foreach}
+								</select>
+								<span id="lutteur1_valid"></span>
+							</div>
+																<h1>&</h1>
+							<div class="form-group col">
+								<label for="lutteur2">Lutteur2</label>
+								<select id="lutteur2" name="lutteur2" class="form-control custum-select" required>
+									<option >Séléctionnez un lutteur </option>
+									{foreach from=$liste_lutteurs item=$lutteur}
+										<option value="{$lutteur->getIdLutteur()}">{$lutteur->getPersonne()->getPrenom()} {$lutteur->getPersonne()->getNom()}</option>
+									{/foreach}
+								</select>
+								<span id="lutteur2_valid"></span>
+							</div>
+						</div>
+						<!--Les 3 Arbitres -->
+						<div class="form-row">
+							<div class="col-4 form-group">
+								<label for="arbitre1">Arbitre1</label>
+								<select id="arbitre1" name="arbitre1" class="form-control custum-select" required>
+									<option >Séléctionnez un arbitre </option>
+									{foreach from=$liste_arbitres item=$arbitre}
+										<option value="{$arbitre->getIdArbitre()}">{$arbitre->getPersonne()->getPrenom()} {$arbitre->getPersonne()->getNom()}</option> 
+									{/foreach}
+								</select>
+								<span id="arbitre1_valid"></span>
+							</div>
+							<div class="col">
+								<label for="arbitre2">Arbitre2</label>
+								<select id="arbitre2" name="arbitre2" class="form-control custum-select" required>
+									<option >Séléctionnez un arbitre </option>
+									{foreach from=$liste_arbitres item=$arbitre}
+										<option value="{$arbitre->getIdArbitre()}">{$arbitre->getPersonne()->getPrenom()} {$arbitre->getPersonne()->getNom()}</option> 
+									{/foreach}
+								</select>
+								<span id="lutteur2_valid"></span>
+							</div>
+							<div class="col">
+								<label for="arbitre3">Arbitre3</label>
+								<select id="arbitre3" name="arbitre3" class="form-control custum-select" required>
+									<option >Séléctionnez un arbitre </option>
+									{foreach from=$liste_arbitres item=$arbitre}
+										<option value="{$arbitre->getIdArbitre()}">{$arbitre->getPersonne()->getPrenom()} {$arbitre->getPersonne()->getNom()}</option> 
+									{/foreach}
+								</select>
+								<span id="lutteur3_valid"></span>
+							</div>							
+						</div>
+
+						<!-- Stade  / Promoteur /Consultant -->
+						<div class="form-row">
+							<div class="col-4 form-group">
+								<label for="stade">Stade</label>
+								<select id="stade" name="stade" class="form-control custum-select" required>
+									<option >Séléctionnez un stade </option>
+									{foreach from=$liste_stades item=$stade}
+										<option value="{$stade->getIdLieuStade()}">{$stade->getNomLieu()}</option> 
+									{/foreach}
+								</select>
+								<span id="stade_valid"></span>
+							</div>
+							<div class="col">
+								<label for="promoteur">Promoteur</label>
+								<select id="promoteur" name="promoteur" class="form-control custum-select" required>
+									<option >Le promoteur du combat </option>
+									{foreach from=$liste_promoteurs item=$promoteur}
+										<option value="{$promoteur->getIdPromoteur()}">{$promoteur->getPersonne()->getPrenom()} {$promoteur->getPersonne()->getNom()}</option>
+									{/foreach}
+								</select>
+								<span id="promoteur_valid"></span>
+							</div>
+							<div class="col">
+								<label for="consultant">Consultant</label>
+								<select id="consultant" name="consultant" class="form-control custum-select" required>
+									<option >Le consultant du combat </option>
+									{foreach from=$liste_consultants item=$consultant}
+										<option value="{$consultant->getIdConsultant()}">{$consultant->getPersonne()->getPrenom()} {$consultant->getPersonne()->getNom()}</option>
+									{/foreach}
+								</select>
+								<span id="consultant_valid"></span>
+							</div>						
+						</div>
+						<!-- Tournoi / NumJour / Date -->
+						<div class="form-row">
+							<div class="col-4 form-group">
+								<label for="tournoi">Tournoi</label>
+								<select id="tournoi" name="tournoi" class="form-control custum-select" required>
+									<option >Séléctionnez un tournoi de lutte </option>
+									{foreach from=$liste_tournois item=$tournoi}
+										<option value="{$tournoi->getIdTournoiLutte()}">{$tournoi->getNomTournoi()}</option> 
+									{/foreach}
+								</select>
+								<span id="tournoi_valid"></span>
+							</div>
+							<div class="col">
+								<label for="jour">Jour</label>
+								<select id="jour" name="jour" class="form-control custum-select" required>
+									<option >Le Jour du combat </option>
+									<option value="1">Lundi</option>
+									<option value="2">Mardi</option>
+									<option value="3">Mercredi</option>
+									<option value="4">Jeudi</option>
+									<option value="5">Vendredi</option>
+									<option value="6">Samedi</option>
+									<option value="7">Dimanche</option>
+								</select>
+								<span id="jour_valid"></span>
+							</div>
+							
+							<div class="col">
+								<label for="date">Date du combat</label>
+								<input type="date" name="date" id="date" required class="form-control">
+								<span id="date_valid"></span>
+							</div>						
+						</div>
+
+						<!-- Photo / Video / IsGrandCombat -->
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<label for="photo">Photo</label>
+								<input type="file" name="photo" class="form-control" id="photo" required>
+								<span id="photo_valid"></span>
+							</div>
+							<div class="form-group col-md-4">
+								<label for="video">Video</label>
+								<input type="file" name="video" class="form-control" id="video" required>
+								<span id="video_valid"></span>
+							</div>
+							<div class="form-group col-md-4 form-inline">
+								<label for="isGrandCombat">Grand combat ?</label>
+									Oui : <input type="radio" name="isGrandCombat" value="1" id="isGrandCombat" required>  
+									Non : <input type="radio" name="isGrandCombat" value="0" id="isGrandCombat" required> 
+							
+								<span id="video_valid"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="description">Observation</label>
+							<textarea name="description" id="description" class="form-control" rows="2"></textarea>
+							<span id="description_valid"></span>
+						</div>
+						
+						<!-- Validation -->
+						<div class="form-group">
+							<input class="btn btn-primary" type="submit" name="valider" value="Enregistrer"  id="button_soumission"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		  <!-- <====== Script =====> -->
+		  {include file='../../../partials/contenu_index/scripts.html'}
+		  <!-- <====== End Script =====> -->
+
+		  <literal>
+			<script src="{base_url()}public/js/personne.js" id="src"></script>
+		</literal>
+	</body>
+</html>
+

@@ -12,8 +12,6 @@ class LutteurController extends Controller{
     }
 
     public function ajouter(){
-        // $lutteur_db = new LutteurRepository;
-        // $data['liste_lutteurs'] = $lutteur_db->listeLutteurs();
         $manager = new ManagerRepository;
         $data["liste_managers"] = $manager->listeManagers();
         return $this->view->load("pages/personne/lutteur/add", $data);
@@ -55,7 +53,6 @@ class LutteurController extends Controller{
 
                 return $this->liste();    
             }
-                // var_dump($personne->getSurnom()); die;
                 $photo_name = $_FILES['photo']['name'];
                 $file_tmp_name = $_FILES['photo']['tmp_name'];
                 move_uploaded_file($file_tmp_name,"./public/images/$photo_name");
@@ -71,24 +68,18 @@ class LutteurController extends Controller{
                 $personne->setMetierPersonne(addslashes($metier));
                 $personne->setSexe(addslashes($genre));
                 $personne->setNationalite(addslashes($nationalite));
-                $personne->setDescription($description);
-                
-                // on ajoute personne 
+                $personne->setDescription($description);             
                 $personne_db = new PersonneRepository;
                 $id = $personne_db->addPersonne($personne);
                 
-                // on charge son id dans la table Lutteur
                 $lutteur_db = new LutteurRepository;
                 $lutteur = new Lutteur();
                 $lutteur->setPersonne($lutteur_db->getPersonne($id));
                 $lutteur->setDroitierOuGauchier($droitier_gauchier);
                 $lutteur->setCategorieVipAutres($categorie);
-                $lutteur->setManager($lutteur_db->getManager($manager));
-        
-                // puis on ajoute Lutteur
+                $lutteur->setManager($lutteur_db->getManager($manager));    
                 $lutteur_db->addLutteur($lutteur);
                 header("location:$url_base/Lutteur/liste");
-                // return $this->liste();    
         }
         else{
             $this->view->load('pages/personne/lutteur/add');

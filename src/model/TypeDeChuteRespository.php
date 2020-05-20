@@ -37,40 +37,23 @@ class TypeDeChuteRepository extends Model
     }
 
 
-    /**
-     * Modification d'un Arbitre
-     *
-     * @param TypeDeChute $typeDeChute
-     * @return int
-     */
-    public function updateTypeDeChute($typeDeChute)
-    {
-       $getTypeDeChute = $this->db->find('Typedechute', $typeDeChute->getIdTypeDeChute());
-        if ($getTypeDeChute != null) {
-            $getTypeDeChute->getPersonne()->setNom($typeDeChute->getPersonne()->getNom());
-            $getTypeDeChute->getPersonne()->setPrenom($typeDeChute->getPersonne()->getPrenom());
-            $getTypeDeChute->getPersonne()->setSurnom($typeDeChute->getPersonne()->getsurnom());
-            $getTypeDeChute->getPersonne()->setDateNaissance($typeDeChute->getPersonne()->getDateNaissance());
-            $getTypeDeChute->getPersonne()->setAdresse($typeDeChute->getPersonne()->getAdresse());
-            $getTypeDeChute->getPersonne()->setVille($typeDeChute->getPersonne()->getVille());
-            $getTypeDeChute->getPersonne()->setPhotoPersonne($typeDeChute->getPersonne()->getPhotoPersonne());
-            $getTypeDeChute->getPersonne()->setMetierPersonne($typeDeChute->getPersonne()->getMetierPersonne());
-            $getTypeDeChute->getPersonne()->setSexe($typeDeChute->getPersonne()->getSexe());
-            $getTypeDeChute->getPersonne()->setNationalite($typeDeChute->getPersonne()->getNationalite());
-            $getTypeDeChute->setDescriptionArbitre($typeDeChute->getDescriptionArbitre());
-            // $getTypeDeChute->setCombats($typeDeChute->getCombats);
-            $this->db->flush();
-            return $typeDeChute->getIdTypeDeChute();
-        } else {
-            die("Objet " . $typeDeChute->getIdTypeDeChute() . " does not existe!!");
-        }
-    }
+  
+    // public function updateTypeDeChute($typeDeChute)
+    // {
+    //    $getTypeDeChute = $this->db->find('Typedechute', $typeDeChute->getIdTypeDeChute());
+    //     if ($getTypeDeChute != null) {
+    //         $getTypeDeChute->getPersonne()->setNom($typeDeChute->getPersonne()->getNom());
+    //         $getTypeDeChute->getPersonne()->setPrenom($typeDeChute->getPersonne()->getPrenom());
+            
+    //         // $getTypeDeChute->setCombats($typeDeChute->getCombats);
+    //         $this->db->flush();
+    //         return $typeDeChute->getIdTypeDeChute();
+    //     } else {
+    //         die("Objet " . $typeDeChute->getIdTypeDeChute() . " does not existe!!");
+    //     }
+    // }
 
-    /**
-     * suppression d'une Arbitre
-     *
-     * @param int $id
-     */
+   
     public function deleteTypeDeChute($id)
     {
         $typeDeChute = $this->db->find('TypeDeChute', $id);

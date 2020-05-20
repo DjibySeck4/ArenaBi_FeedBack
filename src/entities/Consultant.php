@@ -22,10 +22,19 @@ class Consultant
 
     public function __construct()
     {
-
         $this->combats = new ArrayCollection();
     }
 
+
+    public function getIdConsultant()
+    {
+        return $this->idConsultant;
+    }
+    public function setIdConsultant($idConsultant)
+    {
+        $this->idConsultant = $idConsultant;
+    }
+    
     /**
      * Get the value of personne
      */ 
@@ -82,4 +91,6 @@ class Consultant
     {
         $this->combats = $combats;
     }
+
+   
 }

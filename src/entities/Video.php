@@ -15,10 +15,10 @@ class Video
      * @JoinColumn(name="idResultat", referencedColumnName="idResultat")
      */
     private $idResultat;
-    /**
-     * @OneToOne(targetEntity="BandeAnnonceCombat", mappedBy="video")
-     */
-    private $bandeAnnonce;
+    // /**
+    //  * @OneToOne(targetEntity="BandeAnnonceCombat", mappedBy="video")
+    //  */
+    // private $bandeAnnonce;
     /** @Column(type="string", length=10, nullable=false) **/
     private $dateVideo;
     /** @Column(type="string", length=40, nullable=false) **/

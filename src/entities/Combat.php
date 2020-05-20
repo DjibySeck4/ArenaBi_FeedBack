@@ -4,9 +4,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @Entity @Table(name="combat")
- **/
+ **/ 
 
-class Combat
+class Combat 
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $idCombat;
@@ -61,8 +61,6 @@ class Combat
     private $isGrandCombat;
     /** @column(type="string", nullable=false) */
     private $description;
-    /** @column(type="integer") */
-    private $nombreSpectateurs;
     
     private $bandeAnnonce;
 
@@ -152,7 +150,7 @@ class Combat
     {
         return $this->nombreSpectateurs;
     }
-
+ 
     /**
      * Set the value of nombreSpectateurs
      */ 
